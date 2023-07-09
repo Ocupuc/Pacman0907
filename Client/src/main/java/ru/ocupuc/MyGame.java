@@ -1,3 +1,5 @@
+package ru.ocupuc;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.utils.ScreenUtils;
 
