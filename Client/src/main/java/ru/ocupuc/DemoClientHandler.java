@@ -42,7 +42,7 @@ public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
             case AWAITING_PACMAN_POSITION:
                 PacmanPosition pacmanPosition = PacmanPosition.parseFromString(s);
                 System.out.println("Received Pacman position:");
-                System.out.println("Pacman is at (" + pacmanPosition.getX() + ";" + pacmanPosition.getY() + ")");
+                System.out.println("Pacman is at (" + pacmanPosition.x() + ";" + pacmanPosition.y() + ")");
                 currentState = State.AWAITING_SIZE;  // Если нужно, можно переходить обратно к состоянию ожидания размера
                 break;
         }

@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="построил маленькую карту и отправил  клиенту: размер карты, карту и координаты пакмана">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MapGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MapSize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/PacmanPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="распарсили полученные координаты">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/DemoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/DemoClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/DemoClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/DemoClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MapGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MapGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/PacmanPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/PacmanPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PRCServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PRCServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/RPCServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/RPCServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +263,8 @@
       <updated>1688879605876</updated>
       <workItem from="1688879607100" duration="19685000" />
       <workItem from="1688999548236" duration="435000" />
-      <workItem from="1689046025682" duration="5601000" />
+      <workItem from="1689046025682" duration="6779000" />
+      <workItem from="1689054516073" duration="719000" />
     </task>
     <task id="LOCAL-00001" summary="Старт, два стоковых приложения на libGDX">
       <created>1688880608421</created>
@@ -285,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688921274431</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="распарсили полученные координаты">
+      <created>1689051678134</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1689051678134</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +316,7 @@
     <MESSAGE value="Старт, два стоковых приложения на libGDX" />
     <MESSAGE value="Добавил NEtty" />
     <MESSAGE value="построил маленькую карту и отправил  клиенту: размер карты, карту и координаты пакмана" />
-    <option name="LAST_COMMIT_MESSAGE" value="построил маленькую карту и отправил  клиенту: размер карты, карту и координаты пакмана" />
+    <MESSAGE value="распарсили полученные координаты" />
+    <option name="LAST_COMMIT_MESSAGE" value="распарсили полученные координаты" />
   </component>
 </project>

@@ -37,7 +37,7 @@ public class DemoClient {
             bootstrap.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
                     .option(ChannelOption.SO_KEEPALIVE, true);
             ChannelFuture future = bootstrap.connect(ip, port).sync();
-            future.channel().writeAndFlush("Hello Netty Server ,I am a common client");
+                        future.channel().writeAndFlush("Hello Netty Server ,I am a common client");
             future.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             workerGroup.shutdownGracefully();

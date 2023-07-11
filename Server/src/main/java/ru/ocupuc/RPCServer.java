@@ -11,7 +11,6 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
-import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetSocketAddress;
 
@@ -61,19 +60,6 @@ public class RPCServer {
 
         }
 
-
-
-        /* bootstrap.bind(this.ip, this.port).addListener(future -> {
-             if (future.isSuccess()) {
-                 log.info(" RPCServer startup success");
-             } else {
-                 log.error(" PRCServer startup failed", future.cause());
-             }
-         });*/
     }
 
-//    public static void main(String[] args) {
-//        RPCServer rpcServer = new RPCServer("127.0.0.1", 8090, 1, 1);
-//        rpcServer.start();
-//    }
 }

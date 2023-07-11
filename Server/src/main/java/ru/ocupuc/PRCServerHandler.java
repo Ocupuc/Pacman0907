@@ -36,4 +36,10 @@ public class PRCServerHandler extends SimpleChannelInboundHandler<String> {
                 field.getPacmanPosition().y);
         ctx.writeAndFlush(pacmanPositionMessage);
     }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        cause.printStackTrace();
+        ctx.close();
+    }
 }
