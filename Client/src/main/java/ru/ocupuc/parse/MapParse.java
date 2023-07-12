@@ -1,14 +1,14 @@
-package ru.ocupuc;
+package ru.ocupuc.parse;
 
 import java.awt.*;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MapGame {
+public class MapParse {
     private HashMap<Point, String> map;
 
-    public MapGame() {
+    public MapParse() {
         this.map = new HashMap<>();
     }
 

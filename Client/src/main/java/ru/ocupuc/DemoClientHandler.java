@@ -2,6 +2,9 @@ package ru.ocupuc;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import ru.ocupuc.parse.MapParse;
+import ru.ocupuc.parse.MapSizeParse;
+import ru.ocupuc.parse.PacmanPositionParse;
 
 public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
 
@@ -23,7 +26,7 @@ public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
     protected void channelRead0(ChannelHandlerContext ctx, String s) throws Exception {
         switch (currentState) {
             case AWAITING_SIZE:
-                MapSize mapSize = MapSize.parseFromString(s);
+                MapSizeParse mapSize = MapSizeParse.parseFromString(s);
                 MyGame.setGridSize(mapSize.mapSizeX(), mapSize.mapSizeY());
                 System.out.println("mapSizeX = " + mapSize.mapSizeX());
                 System.out.println("mapSizeY = " + mapSize.mapSizeY());
@@ -31,7 +34,7 @@ public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
                 break;
 
             case AWAITING_MAP:
-                MapGame gameMap = new MapGame();
+                MapParse gameMap = new MapParse();
                 gameMap.parseFromString(s);
                 System.out.println("Received map:");
                 gameMap.getMap().forEach((point, type) -> {
@@ -41,7 +44,7 @@ public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
                 break;
 
             case AWAITING_PACMAN_POSITION:
-                PacmanPosition pacmanPosition = PacmanPosition.parseFromString(s);
+                PacmanPositionParse pacmanPosition = PacmanPositionParse.parseFromString(s);
                 MyGame.getInstance().updatePacmanPosition(pacmanPosition.x(), pacmanPosition.y());
                 System.out.println("Pacman is at (" + pacmanPosition.x() + ";" + pacmanPosition.y() + ")");
                 currentState = State.AWAITING_SIZE;  // Если нужно, можно переходить обратно к состоянию ожидания размера
