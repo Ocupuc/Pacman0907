@@ -20,7 +20,7 @@ public class ClientApp {
         });
 
         executor.submit(() -> {
-            demoClient = new DemoClient("127.0.0.1", 8090, 4);
+            demoClient = new DemoClient("127.0.0.1", 8090, 30);
             demoClient.start();
         });
 

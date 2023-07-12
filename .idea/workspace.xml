@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="начинаем настраивать кнопки" />
+    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="начинаем настраивать кнопки">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientApp.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
