@@ -10,8 +10,5 @@ public class ServerApp {
         rpcServer.start();
 
 
-        Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-        config.setTitle("Hello Server!");
-        new Lwjgl3Application(new MyGame(), config);
     }
 }

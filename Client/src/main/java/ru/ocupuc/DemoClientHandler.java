@@ -13,6 +13,7 @@ public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
 
     private State currentState = State.AWAITING_SIZE;
 
+
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
 
@@ -23,7 +24,7 @@ public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
         switch (currentState) {
             case AWAITING_SIZE:
                 MapSize mapSize = MapSize.parseFromString(s);
-                System.out.println("Received size:");
+                MyGame.setGridSize(mapSize.mapSizeX(), mapSize.mapSizeY());
                 System.out.println("mapSizeX = " + mapSize.mapSizeX());
                 System.out.println("mapSizeY = " + mapSize.mapSizeY());
                 currentState = State.AWAITING_MAP;
@@ -41,7 +42,7 @@ public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
 
             case AWAITING_PACMAN_POSITION:
                 PacmanPosition pacmanPosition = PacmanPosition.parseFromString(s);
-                System.out.println("Received Pacman position:");
+                MyGame.getInstance().updatePacmanPosition(pacmanPosition.x(), pacmanPosition.y());
                 System.out.println("Pacman is at (" + pacmanPosition.x() + ";" + pacmanPosition.y() + ")");
                 currentState = State.AWAITING_SIZE;  // Если нужно, можно переходить обратно к состоянию ожидания размера
                 break;
