@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="наконец то пакмана поставили на нужную клетку">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/KeyboardTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/DemoClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/DemoClientHandler.java" afterDir="false" />
-    </list>
+    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="начинаем настраивать кнопки" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +69,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="connect1" />
+        <entry key="$PROJECT_DIR$" value="connect3" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -263,7 +259,7 @@
       <workItem from="1689046025682" duration="6779000" />
       <workItem from="1689054516073" duration="719000" />
       <workItem from="1689130387114" duration="5845000" />
-      <workItem from="1689139666529" duration="395000" />
+      <workItem from="1689139666529" duration="704000" />
     </task>
     <task id="LOCAL-00001" summary="Старт, два стоковых приложения на libGDX">
       <created>1688880608421</created>
@@ -307,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689135301711</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="начинаем настраивать кнопки">
+      <created>1689140313948</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689140313948</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +335,7 @@
     <MESSAGE value="распарсили полученные координаты" />
     <MESSAGE value="выставляем пакмана" />
     <MESSAGE value="наконец то пакмана поставили на нужную клетку" />
-    <option name="LAST_COMMIT_MESSAGE" value="наконец то пакмана поставили на нужную клетку" />
+    <MESSAGE value="начинаем настраивать кнопки" />
+    <option name="LAST_COMMIT_MESSAGE" value="начинаем настраивать кнопки" />
   </component>
 </project>
