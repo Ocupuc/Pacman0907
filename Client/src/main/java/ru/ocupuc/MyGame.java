@@ -40,6 +40,7 @@ public class MyGame extends ApplicationAdapter {
 
     @Override
     public void create() {
+        Gdx.input.setInputProcessor(new KeyboardTracker());
         instance = this;
         pacmanTexture = new Texture(Gdx.files.internal("pacman.png"));
         processPendingUpdates();

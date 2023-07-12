@@ -47,7 +47,7 @@ public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
                 PacmanPositionParse pacmanPosition = PacmanPositionParse.parseFromString(s);
                 MyGame.getInstance().updatePacmanPosition(pacmanPosition.x(), pacmanPosition.y());
                 System.out.println("Pacman is at (" + pacmanPosition.x() + ";" + pacmanPosition.y() + ")");
-                currentState = State.AWAITING_SIZE;  // Если нужно, можно переходить обратно к состоянию ожидания размера
+                //    currentState = State.AWAITING_SIZE;  // Если нужно, можно переходить обратно к состоянию ожидания размера
                 break;
         }
     }

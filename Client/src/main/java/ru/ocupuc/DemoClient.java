@@ -44,8 +44,5 @@ public class DemoClient {
         }
 
     }
-//    public static void main(String[] args) {
-//        DemoClient client=new DemoClient("127.0.0.1",8090,1);
-//        client.start();
-//    }
+
 }
