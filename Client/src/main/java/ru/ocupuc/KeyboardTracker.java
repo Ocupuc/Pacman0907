@@ -3,7 +3,11 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 
 public class KeyboardTracker implements InputProcessor {
-    private boolean wPressed, sPressed, aPressed, dPressed;
+    private boolean wPressed = false;
+    private boolean sPressed = false;
+    private boolean aPressed = false;
+    private boolean dPressed = false;
+
 
     @Override
     public boolean keyDown(int keycode) {
