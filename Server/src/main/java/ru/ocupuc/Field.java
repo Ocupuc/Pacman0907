@@ -9,6 +9,7 @@ public class Field {
     private static final int SIZE_Y = 5;
     private Map<Point, Object> grid;
     private Pacman pacman;
+    private CommandProcessor commandProcessor;
 
     public Field() {
         this.grid = new HashMap<>();
@@ -23,6 +24,7 @@ public class Field {
         // Помещаем Pacman в свободную клетку
         pacman = new Pacman(new Point(2, 2));
         grid.put(pacman.getPosition(), pacman);
+        commandProcessor = new CommandProcessor(this);
     }
 
     // Проверяем, может ли Pacman переместиться на заданную позицию
@@ -42,29 +44,7 @@ public class Field {
     }
 
     public void processCommand(String command) {
-        Point currentPosition = pacman.getPosition();
-        Point newPosition = null;
-
-        switch (command) {
-            case "UP":
-                newPosition = new Point(currentPosition.x, currentPosition.y + 1);
-                break;
-            case "DOWN":
-                newPosition = new Point(currentPosition.x, currentPosition.y - 1);
-                break;
-            case "LEFT":
-                newPosition = new Point(currentPosition.x - 1, currentPosition.y);
-                break;
-            case "RIGHT":
-                newPosition = new Point(currentPosition.x + 1, currentPosition.y);
-                break;
-        }
-
-        if (newPosition != null) {
-            movePacman(newPosition);
-        } else {
-            System.out.println("Invalid command: " + command);
-        }
+        commandProcessor.processCommand(command);
     }
 
     // Получить текущую сетку игры
