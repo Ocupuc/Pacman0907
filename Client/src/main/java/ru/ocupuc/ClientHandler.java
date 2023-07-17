@@ -6,7 +6,17 @@ import ru.ocupuc.parse.MapParse;
 import ru.ocupuc.parse.MapSizeParse;
 import ru.ocupuc.parse.PacmanPositionParse;
 
-public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
+
+
+
+public class ClientHandler extends SimpleChannelInboundHandler<String>{
+
+
+    private Callback onMessageReceivedCallback;
+
+    public ClientHandler(Callback onMessageReceivedCallback) {
+        this.onMessageReceivedCallback = onMessageReceivedCallback;
+    }
 
     private enum State {
         AWAITING_SIZE,
@@ -24,6 +34,9 @@ public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String s) throws Exception {
+        if (onMessageReceivedCallback!= null){
+            onMessageReceivedCallback.callback(s);
+        }
         switch (currentState) {
             case AWAITING_SIZE:
                 MapSizeParse mapSize = MapSizeParse.parseFromString(s);
@@ -48,6 +61,8 @@ public class DemoClientHandler extends SimpleChannelInboundHandler<String>{
                 MyGame.getInstance().updatePacmanPosition(pacmanPosition.x(), pacmanPosition.y());
                 System.out.println("Pacman is at (" + pacmanPosition.x() + ";" + pacmanPosition.y() + ")");
                 //    currentState = State.AWAITING_SIZE;  // Если нужно, можно переходить обратно к состоянию ожидания размера
+
+
                 break;
         }
     }

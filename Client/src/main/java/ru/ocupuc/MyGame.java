@@ -11,6 +11,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class MyGame extends ApplicationAdapter {
+    Network network = new Network((args)->{
+    });
+    KeyboardTracker keyboardTracker = new KeyboardTracker(network);
+
     private static final int CELL_SIZE = 50;  // размер клетки
     private static int gridWidth;   // ширина сетки
     private static int gridHeight;  // высота сетки
@@ -40,7 +44,8 @@ public class MyGame extends ApplicationAdapter {
 
     @Override
     public void create() {
-        Gdx.input.setInputProcessor(new KeyboardTracker());
+
+        Gdx.input.setInputProcessor(keyboardTracker);
         instance = this;
         pacmanTexture = new Texture(Gdx.files.internal("pacman.png"));
         processPendingUpdates();

@@ -3,11 +3,17 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 
 public class KeyboardTracker implements InputProcessor {
+
+    private Network network;
+
     private boolean wPressed = false;
     private boolean sPressed = false;
     private boolean aPressed = false;
     private boolean dPressed = false;
 
+    public KeyboardTracker(Network network) {
+        this.network = network;
+    }
 
     @Override
     public boolean keyDown(int keycode) {
@@ -53,10 +59,11 @@ public class KeyboardTracker implements InputProcessor {
         return true;
     }
 
-    private void sendStateToServer() {
+    public String sendStateToServer() {
         String state = String.format("W:%s, S:%s, A:%s, D:%s", wPressed, sPressed, aPressed, dPressed);
-        // Здесь вы можете добавить код для отправки состояния на сервер
+        network.sendMessage(state);
         System.out.println(state);
+        return state;
     }
 
     // Остальные методы интерфейса InputProcessor оставлены пустыми, так как они не используются

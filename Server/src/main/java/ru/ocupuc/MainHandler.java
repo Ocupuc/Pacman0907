@@ -1,25 +1,29 @@
 package ru.ocupuc;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 
 
 
-public class PRCServerHandler extends SimpleChannelInboundHandler<String> {
-    private Field field;
 
-    public PRCServerHandler() {
+public class MainHandler extends SimpleChannelInboundHandler<String> {
+    private  Field field;
+
+    public MainHandler() {
         this.field = new Field();
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("соединение установлено");
+
         // Отправляем размер карты и саму карту клиенту при подключении
         String sizeMessage = String.format("size(%d;%d)\n", field.getSizeX(), field.getSizeY());
         ctx.writeAndFlush(sizeMessage);
+        Thread.sleep(1000);
         ctx.writeAndFlush(field.getGrid().toString() + "\n");
+        Thread.sleep(1000);
     }
 
     @Override
