@@ -35,7 +35,7 @@ public class SimpleClient {
             Channel channel = bootstrap.connect("localhost", 8090).sync().channel();
 
             // Send a test message to the server
-            String testMessage = "{\"type\":\"state\",\"leftPressed\":true,\"rightPressed\":false,\"upPressed\":false,\"downPressed\":false,\"angle\":0.0}";
+            String testMessage = "{\"type\":\"state\",\"leftPressed\":true,\"rightPressed\":false,\"upPressed\":false,\"downPressed\":false}";
             channel.writeAndFlush(Unpooled.copiedBuffer(testMessage, StandardCharsets.UTF_8));
 
             // Wait until the connection is closed.

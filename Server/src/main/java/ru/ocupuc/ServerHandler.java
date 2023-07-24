@@ -18,11 +18,11 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
 
         switch (type) {
             case "state":
-                Panzer panzer = GameLoop.panzers.get(ctx.channel().id().asLongText());
-                panzer.setLeftPressed(message.get("leftPressed").asBoolean());
-                panzer.setRightPressed(message.get("rightPressed").asBoolean());
-                panzer.setUpPressed(message.get("upPressed").asBoolean());
-                panzer.setDownPressed(message.get("downPressed").asBoolean());
+                Pacman pacman = GameLoop.pacmen.get(ctx.channel().id().asLongText());
+                pacman.setLeftPressed(message.get("leftPressed").asBoolean());
+                pacman.setRightPressed(message.get("rightPressed").asBoolean());
+                pacman.setUpPressed(message.get("upPressed").asBoolean());
+                pacman.setDownPressed(message.get("downPressed").asBoolean());
                 break;
             default:
                 throw new RuntimeException("Unknown WS object type: " + type);
@@ -31,9 +31,9 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        Panzer panzer = new Panzer();
-        panzer.setId(ctx.channel().id().asLongText());
-        GameLoop.panzers.put(ctx.channel().id().asLongText(), panzer);
+        Pacman pacman = new Pacman();
+        pacman.setId(ctx.channel().id().asLongText());
+        GameLoop.pacmen.put(ctx.channel().id().asLongText(), pacman);
 
         ObjectNode sessionKeyNode = mapper.createObjectNode();
         sessionKeyNode.put("class", "sessionKey");
@@ -48,6 +48,6 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
         evictNode.put("id", ctx.channel().id().asLongText());
         ctx.writeAndFlush(evictNode.toString());
 
-        GameLoop.panzers.remove(ctx.channel().id().asLongText());
+        GameLoop.pacmen.remove(ctx.channel().id().asLongText());
     }
 }

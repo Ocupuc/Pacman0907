@@ -10,15 +10,13 @@ import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
-import java.io.IOException;
-
 public class GameLoop extends ApplicationAdapter {
     private static final float frameRate = 1 / 60f;
     private final Json json;
     private float lastRender = 0;
 
-    static final ObjectMap<String, Panzer> panzers = new ObjectMap<>();
-    private final Array<Panzer> stateToSend = new Array<>();
+    static final ObjectMap<String, Pacman> pacmen = new ObjectMap<>();
+    private final Array<Pacman> stateToSend = new Array<>();
     static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
     public GameLoop(Json json) {
@@ -30,10 +28,10 @@ public class GameLoop extends ApplicationAdapter {
         lastRender += Gdx.graphics.getDeltaTime();
         if (lastRender >= frameRate) {
             stateToSend.clear();
-            for (ObjectMap.Entry<String, Panzer> panzerEntry : panzers) {
-                Panzer panzer = panzerEntry.value;
-                panzer.act(lastRender);
-                stateToSend.add(panzer);
+            for (ObjectMap.Entry<String, Pacman> pacmanEntry : pacmen) {
+                Pacman pacman = pacmanEntry.value;
+                pacman.act();
+                stateToSend.add(pacman);
             }
 
             lastRender = 0;
@@ -51,3 +49,4 @@ public class GameLoop extends ApplicationAdapter {
         }
     }
 }
+
