@@ -13,6 +13,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<String>{
 
     public ClientHandler(Callback onMessageReceivedCallback) {
         this.onMessageReceivedCallback = onMessageReceivedCallback;
+
     }
 
 
@@ -26,7 +27,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<String>{
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String s) throws Exception {
-
+        System.out.println(s);
     }
 
     @Override

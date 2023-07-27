@@ -36,6 +36,10 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
         pacman.setChannel(ctx.channel());
         GameLoop.pacmen.put(ctx.channel().id().asLongText(), pacman);
 
+        // send the new player to the client
+        PacmanDTO pacmanDTO = new PacmanDTO(pacman);
+        ctx.writeAndFlush(mapper.writeValueAsString(pacmanDTO));
+
         // update other clients about the new player
         GameLoop.sendToEverybodyExcept(pacman, "New player joined: " + pacman.getId());
     }

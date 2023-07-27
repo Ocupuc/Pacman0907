@@ -79,6 +79,10 @@ public class Pacman implements Json.Serializable {
 
     @Override
     public void read(Json json, JsonValue jsonData) {
+        this.x = jsonData.getInt("x");
+        this.y = jsonData.getInt("y");
+        this.id = jsonData.getString("id");
+        // add more fields as necessary
     }
 
     public boolean isUpPressed() {
