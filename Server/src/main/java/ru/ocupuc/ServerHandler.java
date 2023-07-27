@@ -33,21 +33,20 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         Pacman pacman = new Pacman();
         pacman.setId(ctx.channel().id().asLongText());
+        pacman.setChannel(ctx.channel());
         GameLoop.pacmen.put(ctx.channel().id().asLongText(), pacman);
 
-        ObjectNode sessionKeyNode = mapper.createObjectNode();
-        sessionKeyNode.put("class", "sessionKey");
-        sessionKeyNode.put("id", ctx.channel().id().asLongText());
-        ctx.writeAndFlush(sessionKeyNode.toString());
+        // update other clients about the new player
+        GameLoop.sendToEverybodyExcept(pacman, "New player joined: " + pacman.getId());
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        ObjectNode evictNode = mapper.createObjectNode();
-        evictNode.put("class", "evict");
-        evictNode.put("id", ctx.channel().id().asLongText());
-        ctx.writeAndFlush(evictNode.toString());
+        // inform others about leaving player
+        Pacman pacman = GameLoop.pacmen.get(ctx.channel().id().asLongText());
+        GameLoop.sendToEverybodyExcept(pacman, "Player left: " + pacman.getId());
 
         GameLoop.pacmen.remove(ctx.channel().id().asLongText());
     }
 }
+

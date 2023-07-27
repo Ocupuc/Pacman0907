@@ -48,5 +48,14 @@ public class GameLoop extends ApplicationAdapter {
             }
         }
     }
+
+    public static void sendToEverybodyExcept(Pacman exception, String json) {
+        for (ObjectMap.Entry<String, Pacman> pacmanEntry : pacmen) {
+            Pacman pacman = pacmanEntry.value;
+            if (!pacman.equals(exception) && pacman.getChannel().isActive()) {
+                pacman.getChannel().writeAndFlush(json);
+            }
+        }
+    }
 }
 

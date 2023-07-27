@@ -2,11 +2,13 @@ package ru.ocupuc;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import io.netty.channel.Channel;
 import lombok.Data;
 
 
 public class Pacman implements Json.Serializable {
     private String id;
+    private Channel channel;
 
     private int x;
     private int y;
@@ -14,6 +16,11 @@ public class Pacman implements Json.Serializable {
 
     private boolean leftPressed;
     private boolean rightPressed;
+    private boolean upPressed;
+    private boolean downPressed;
+
+    public Pacman() {
+    }
 
     public String getId() {
         return id;
@@ -47,8 +54,7 @@ public class Pacman implements Json.Serializable {
         this.speed = speed;
     }
 
-    private boolean upPressed;
-    private boolean downPressed;
+
 
     public void act() {
         if (isUpPressed() && !isDownPressed()) {
@@ -105,5 +111,13 @@ public class Pacman implements Json.Serializable {
 
     public void setRightPressed(boolean rightPressed) {
         this.rightPressed = rightPressed;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Channel channel) {
+        this.channel = channel;
     }
 }

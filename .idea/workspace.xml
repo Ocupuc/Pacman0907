@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="сервер стал пакман">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Callback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/KeyboardTracker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Network.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/SimpleClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/GameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/GameLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/Pacman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +106,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/libGDX/Pacman0907/Client/src/main/java/ru/ocupuc",
+    "last_opened_file_path": "D:/libGDX/Pacman0907/Client/src/main/resources",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -118,7 +128,7 @@
       <recent name="ru.ocupuc.parse" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SimpleClient">
+  <component name="RunManager" selected="Application.NettyServer">
     <configuration name="NettyServer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.ocupuc.NettyServer" />
       <module name="Server.main" />
