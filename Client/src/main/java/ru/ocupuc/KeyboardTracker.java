@@ -1,6 +1,9 @@
 package ru.ocupuc;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class KeyboardTracker implements InputProcessor {
 
@@ -59,11 +62,22 @@ public class KeyboardTracker implements InputProcessor {
         return true;
     }
 
-    public String sendStateToServer() {
-        String state = String.format("W:%s, S:%s, A:%s, D:%s", wPressed, sPressed, aPressed, dPressed);
-        network.sendMessage(state);
-        System.out.println(state);
-        return state;
+    public void sendStateToServer() {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode rootNode = mapper.createObjectNode();
+        rootNode.put("type", "state");
+        rootNode.put("leftPressed", aPressed);
+        rootNode.put("rightPressed", dPressed);
+        rootNode.put("upPressed", wPressed);
+        rootNode.put("downPressed", sPressed);
+        String state = "";
+        try {
+            state = mapper.writeValueAsString(rootNode);
+            network.sendMessage(state);
+            System.out.println(state);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
     }
 
     // Остальные методы интерфейса InputProcessor оставлены пустыми, так как они не используются

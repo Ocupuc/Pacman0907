@@ -6,8 +6,29 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 public class MyGame extends ApplicationAdapter {
+
+    private Pacman myPacman; // Для хранения своего пакмана
+    private List<Pacman> enemyPacmans = new ArrayList<>(); // Для хранения вражеских пакманов
+    private ConcurrentLinkedQueue<Pacman> updatesQueue = new ConcurrentLinkedQueue<>(); // Для хранения обновлений
+
     Network network = new Network((args)->{
+        Pacman pacman = (Pacman) args[0];
+        if (myPacman == null) {
+
+            myPacman = pacman;
+        } else if (myPacman.getId().equals(pacman.getId())) {
+
+            myPacman = pacman;
+        } else {
+
+            updatesQueue.add(pacman);
+        }
     });
     KeyboardTracker keyboardTracker = new KeyboardTracker(network);
 
@@ -52,14 +73,32 @@ public class MyGame extends ApplicationAdapter {
         ScreenUtils.clear(0f, 0f, 0.2f, 1.0f);
         SpriteBatch batch = new SpriteBatch();
         batch.begin();
-        batch.draw(pacmanTexture, pacmanX * CELL_SIZE, pacmanY * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        for (Pacman pacman : enemyPacmans) {
+            batch.draw(pacmanTexture, pacman.getX() * CELL_SIZE, pacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        }
+        // Также рисуем нашего пакмана
+        if (myPacman != null) {
+            batch.draw(pacmanTexture, myPacman.getX() * CELL_SIZE, myPacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        }
         batch.end();
     }
 
     private void processPendingUpdates() {
-        // Обрабатываем все ожидающие обновления позиции
-
+        while (!updatesQueue.isEmpty()) {
+            Pacman pacman = updatesQueue.poll();
+            Optional<Pacman> optionalPacman = enemyPacmans.stream().filter(p -> p.getId().equals(pacman.getId())).findFirst();
+            if (optionalPacman.isPresent()) {
+                // Обновляем позицию существующего пакмана
+                Pacman existingPacman = optionalPacman.get();
+                existingPacman.setX(pacman.getX());
+                existingPacman.setY(pacman.getY());
+            } else {
+                // Добавляем нового пакмана
+                enemyPacmans.add(pacman);
+            }
+        }
     }
+
 
     @Override
     public void dispose() {

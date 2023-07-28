@@ -6,26 +6,37 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
+import java.io.IOException;
+
 public class ServerHandler extends SimpleChannelInboundHandler<String> {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-        JsonNode message = mapper.readTree(msg);
-        String type = message.get("type").asText();
-        System.out.println(msg);
+    protected void channelRead0(ChannelHandlerContext ctx, String msg) {
+        try {
+            System.out.println("Received message: " + msg);
+            JsonNode message = mapper.readTree(msg);
 
-        switch (type) {
-            case "state":
-                Pacman pacman = GameLoop.pacmen.get(ctx.channel().id().asLongText());
-                pacman.setLeftPressed(message.get("leftPressed").asBoolean());
-                pacman.setRightPressed(message.get("rightPressed").asBoolean());
-                pacman.setUpPressed(message.get("upPressed").asBoolean());
-                pacman.setDownPressed(message.get("downPressed").asBoolean());
-                break;
-            default:
-                throw new RuntimeException("Unknown WS object type: " + type);
+            if (message.has("type")) {
+                String type = message.get("type").asText();
+                switch (type) {
+                    case "state":
+                        Pacman pacman = GameLoop.pacmen.get(ctx.channel().id().asLongText());
+                        if(pacman != null && message.has("leftPressed") && message.has("rightPressed")
+                                && message.has("upPressed") && message.has("downPressed")) {
+                            pacman.setLeftPressed(message.get("leftPressed").asBoolean());
+                            pacman.setRightPressed(message.get("rightPressed").asBoolean());
+                            pacman.setUpPressed(message.get("upPressed").asBoolean());
+                            pacman.setDownPressed(message.get("downPressed").asBoolean());
+                        }
+                        break;
+                    default:
+                        throw new RuntimeException("Unknown WS object type: " + type);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -52,5 +63,12 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
 
         GameLoop.pacmen.remove(ctx.channel().id().asLongText());
     }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        cause.printStackTrace();
+        ctx.close();
+    }
 }
+
 

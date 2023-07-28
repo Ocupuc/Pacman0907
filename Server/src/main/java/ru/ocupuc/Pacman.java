@@ -22,6 +22,50 @@ public class Pacman implements Json.Serializable {
     public Pacman() {
     }
 
+    @Override
+    public String toString() {
+        return "Pacman{" +
+                "id='" + id + '\'' +
+                ", x=" + x +
+                ", y=" + y +
+                ", speed=" + speed +
+                ", leftPressed=" + leftPressed +
+                ", rightPressed=" + rightPressed +
+                ", upPressed=" + upPressed +
+                ", downPressed=" + downPressed +
+                '}';
+    }
+
+
+    public void act() {
+        if (isUpPressed() && !isDownPressed()) {
+            y += speed;
+        } else if (isDownPressed() && !isUpPressed()) {
+            y -= speed;
+        }
+
+        if (isLeftPressed() && !isRightPressed()) {
+            x -= speed;
+        } else if (isRightPressed() && !isLeftPressed()) {
+            x += speed;
+        }
+    }
+
+    @Override
+    public void write(Json json) {
+        json.writeValue("x", x);
+        json.writeValue("y", y);
+        json.writeValue("id", id);
+    }
+
+    @Override
+    public void read(Json json, JsonValue jsonData) {
+        this.x = jsonData.getInt("x");
+        this.y = jsonData.getInt("y");
+        this.id = jsonData.getString("id");
+        // add more fields as necessary
+    }
+
     public String getId() {
         return id;
     }
@@ -54,36 +98,6 @@ public class Pacman implements Json.Serializable {
         this.speed = speed;
     }
 
-
-
-    public void act() {
-        if (isUpPressed() && !isDownPressed()) {
-            y += speed;
-        } else if (isDownPressed() && !isUpPressed()) {
-            y -= speed;
-        }
-
-        if (isLeftPressed() && !isRightPressed()) {
-            x -= speed;
-        } else if (isRightPressed() && !isLeftPressed()) {
-            x += speed;
-        }
-    }
-
-    @Override
-    public void write(Json json) {
-        json.writeValue("x", x);
-        json.writeValue("y", y);
-        json.writeValue("id", id);
-    }
-
-    @Override
-    public void read(Json json, JsonValue jsonData) {
-        this.x = jsonData.getInt("x");
-        this.y = jsonData.getInt("y");
-        this.id = jsonData.getString("id");
-        // add more fields as necessary
-    }
 
     public boolean isUpPressed() {
         return upPressed;

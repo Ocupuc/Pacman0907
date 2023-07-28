@@ -9,6 +9,9 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
@@ -17,15 +20,17 @@ public class NettyServer {
     private final GameLoop gameLoop;
     private final int port;
     private final Logger logger = Logger.getLogger(NettyServer.class.getName());
+    private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
     public NettyServer(int port, GameLoop gameLoop) {
         this.port = port;
         this.gameLoop = gameLoop;
     }
 
+
     public void run() throws Exception {
         logger.log(Level.INFO, "Starting server on port " + port);
-        gameLoop.create();
+        executor.scheduleAtFixedRate(gameLoop::render, 0, 1000 / 60, TimeUnit.MILLISECONDS); // 60 FPS
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
@@ -58,11 +63,11 @@ public class NettyServer {
     }
 
     public static void main(String[] args) throws Exception {
+
         int port = 8090;
 
         Json json = new Json();
         GameLoop gameLoop = new GameLoop(json);
-        gameLoop.create();
 
         new NettyServer(port, gameLoop).run();
     }

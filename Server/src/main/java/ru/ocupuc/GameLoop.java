@@ -12,20 +12,20 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 
 public class GameLoop extends ApplicationAdapter {
     private static final float frameRate = 1 / 60f;
-    private final Json json;
     private float lastRender = 0;
 
     static final ObjectMap<String, Pacman> pacmen = new ObjectMap<>();
     private final Array<Pacman> stateToSend = new Array<>();
     static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
+    private final Json json;
+
     public GameLoop(Json json) {
         this.json = json;
     }
 
-    @Override
     public void render() {
-        lastRender += Gdx.graphics.getDeltaTime();
+        lastRender += 1/60f; // DeltaTime for 60 FPS
         if (lastRender >= frameRate) {
             stateToSend.clear();
             for (ObjectMap.Entry<String, Pacman> pacmanEntry : pacmen) {
@@ -41,10 +41,11 @@ public class GameLoop extends ApplicationAdapter {
         }
     }
 
-    private void sendToEverybody(String json) {
+    public void sendToEverybody(String message) {
         for (Channel channel : channels) {
             if (channel.isActive()) {
-                channel.writeAndFlush(json);
+                System.out.println("Sending message: " + message);
+                channel.writeAndFlush(message);
             }
         }
     }
@@ -53,9 +54,9 @@ public class GameLoop extends ApplicationAdapter {
         for (ObjectMap.Entry<String, Pacman> pacmanEntry : pacmen) {
             Pacman pacman = pacmanEntry.value;
             if (!pacman.equals(exception) && pacman.getChannel().isActive()) {
+                System.out.println("Sending exception message: " + json);
                 pacman.getChannel().writeAndFlush(json);
             }
         }
     }
 }
-
