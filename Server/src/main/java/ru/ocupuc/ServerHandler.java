@@ -15,7 +15,6 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) {
         try {
-            System.out.println("Received message: " + msg);
             JsonNode message = mapper.readTree(msg);
 
             if (message.has("type")) {
@@ -23,12 +22,23 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
                 switch (type) {
                     case "state":
                         Pacman pacman = GameLoop.pacmen.get(ctx.channel().id().asLongText());
-                        if(pacman != null && message.has("leftPressed") && message.has("rightPressed")
+
+                        if (pacman != null && message.has("leftPressed") && message.has("rightPressed")
                                 && message.has("upPressed") && message.has("downPressed")) {
+                            // Обновляем состояние пакмана на основе полученных данных
                             pacman.setLeftPressed(message.get("leftPressed").asBoolean());
                             pacman.setRightPressed(message.get("rightPressed").asBoolean());
                             pacman.setUpPressed(message.get("upPressed").asBoolean());
                             pacman.setDownPressed(message.get("downPressed").asBoolean());
+
+
+                            // Сериализуем обновленного пакмана в формат JSON
+                            PacmanDTO updatedPacmanDTO = new PacmanDTO(pacman);
+                            String updatedPacmanJson = mapper.writeValueAsString(updatedPacmanDTO);
+
+                            // Отправляем обновленного пакмана обратно клиенту
+                            ctx.writeAndFlush(updatedPacmanJson);
+                            System.out.println(updatedPacmanJson);
                         }
                         break;
                     default:
@@ -70,5 +80,6 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
         ctx.close();
     }
 }
+
 
 
