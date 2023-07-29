@@ -14,7 +14,10 @@ public class DataSender {
 
     private static final ObjectMapper mapper = new ObjectMapper();
     public void send(){
-        System.out.println(ServerData.pacmans.size());
+     //   System.out.println(ServerData.pacmans.size());
+
+        MovementManager movementManager = new MovementManager();
+        movementManager.move();
 
         List<Object> allPacmanDTOs = pacmans.values().stream()
                 .map(p -> new PacmanDTO(p.getId(), p.getX(), p.getY()))
@@ -25,12 +28,14 @@ public class DataSender {
         String allPacmansMessageJson = null;
         try {
             allPacmansMessageJson = mapper.writeValueAsString(allPacmansMessage);
+
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
 
         for (Channel channel : channels) {
             channel.writeAndFlush(allPacmansMessageJson);
+
         }
     }
 }

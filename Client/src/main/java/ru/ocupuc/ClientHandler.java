@@ -5,11 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 
-
-
-public class ClientHandler extends SimpleChannelInboundHandler<String>{
-
-
+public class ClientHandler extends SimpleChannelInboundHandler<String> {
 
 
     private Callback onMessageReceivedCallback;
@@ -18,6 +14,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<String>{
         this.onMessageReceivedCallback = onMessageReceivedCallback;
 
     }
+
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
 
@@ -25,18 +22,27 @@ public class ClientHandler extends SimpleChannelInboundHandler<String>{
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String s) throws Exception {
-        System.out.println(s);
 
+        if (!s.startsWith("{") || !s.endsWith("}")) {
+            return;
+        }
         ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            Wrapper wrapper = objectMapper.readValue(s, Wrapper.class);
+            if (wrapper.getType() == MessageType.MY_PACMAN) {
+                GameData.id = wrapper.getPacman().get(0).getId();
+            }
 
-        Wrapper wrapper = objectMapper.readValue(s, Wrapper.class);
-        GameData.enemyPacmans = wrapper.getPacman();
-
+            GameData.enemyPacmans = wrapper.getPacman();
+        } catch (Exception e) {
+            System.out.println("error: " + s);
+        }
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         cause.printStackTrace();
         ctx.close();
+        throw new RuntimeException(cause);
     }
 }

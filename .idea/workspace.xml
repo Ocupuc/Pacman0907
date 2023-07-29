@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="IT's alive">
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/DataSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerData.java" afterDir="false" />
+    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="наконец то их двое">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MovementDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MovementType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MovementDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MovementManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Wrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Wrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/GameData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/KeyboardTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/KeyboardTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/DataSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/DataSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/NettyServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PacmanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PacmanDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +158,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClientApp2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.ocupuc.ClientApp" />
+      <module name="Client.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.ocupuc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StarterServer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.ocupuc.StarterServer" />
       <module name="Server.main" />
@@ -254,6 +271,7 @@
     <list>
       <item itemvalue="Application.StarterServer" />
       <item itemvalue="Application.ClientApp" />
+      <item itemvalue="Application.ClientApp2" />
       <item itemvalue="Application.ClientApp (1)" />
       <item itemvalue="Gradle.Server [build]" />
       <item itemvalue="Gradle.Server [buildDependents]" />
@@ -289,7 +307,7 @@
       <workItem from="1690000892276" duration="1242000" />
       <workItem from="1690023586872" duration="17000" />
       <workItem from="1690180960347" duration="12753000" />
-      <workItem from="1690614108283" duration="22147000" />
+      <workItem from="1690614108283" duration="32350000" />
     </task>
     <task id="LOCAL-00001" summary="Старт, два стоковых приложения на libGDX">
       <created>1688880608421</created>
@@ -382,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690632566935</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="наконец то их двое">
+      <created>1690639208383</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1690639208383</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,20 +439,20 @@
     <MESSAGE value="пробую пока не работает" />
     <MESSAGE value="оакмана начал двигаться" />
     <MESSAGE value="IT's alive" />
-    <option name="LAST_COMMIT_MESSAGE" value="IT's alive" />
+    <MESSAGE value="наконец то их двое" />
+    <option name="LAST_COMMIT_MESSAGE" value="наконец то их двое" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="com.fasterxml.jackson.core.io.JsonEOFException" package="com.fasterxml.jackson.core.io" />
+          <option name="timeStamp" value="11" />
+        </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java</url>
+          <url>file://$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientHandler.java</url>
           <line>37</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

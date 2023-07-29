@@ -31,7 +31,7 @@ public class NettyServer {
 
     public void run() throws Exception {
         logger.log(Level.INFO, "Starting server on port " + port);
-       executor.scheduleAtFixedRate(dataSender::send, 0, 1000 /1, TimeUnit.MILLISECONDS); // 60 FPS
+       executor.scheduleAtFixedRate(dataSender::send, 0, 1000 /30, TimeUnit.MILLISECONDS); // 60 FPS
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {

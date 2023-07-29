@@ -62,17 +62,18 @@ public class KeyboardTracker implements InputProcessor {
         return true;
     }
 
+
     public void sendStateToServer() {
         ObjectMapper mapper = new ObjectMapper();
-        ObjectNode rootNode = mapper.createObjectNode();
-        rootNode.put("type", "state");
-        rootNode.put("leftPressed", aPressed);
-        rootNode.put("rightPressed", dPressed);
-        rootNode.put("upPressed", wPressed);
-        rootNode.put("downPressed", sPressed);
-        String state = "";
+        MovementDTO movementDTO = new MovementDTO();
+     //  movementDTO.settype("state");
+       movementDTO.setId(GameData.id);
+       movementDTO.setaPressed(aPressed);
+       movementDTO.setdPressed(dPressed);
+       movementDTO.setwPressed(wPressed);
+       movementDTO.setsPressed(sPressed);
         try {
-            state = mapper.writeValueAsString(rootNode);
+           String state = mapper.writeValueAsString(movementDTO);
             network.sendMessage(state);
             System.out.println(state);
         } catch (JsonProcessingException e) {

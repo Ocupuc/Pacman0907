@@ -23,10 +23,9 @@ import static ru.ocupuc.ServerData.pacmans;
 
 public class ServerHandler extends SimpleChannelInboundHandler<String> {
 
-
+    private final MovementManager movementManager = new MovementManager();
     private static final ObjectMapper mapper = new ObjectMapper();
     //TODO
-
 
 
     @Override
@@ -35,8 +34,8 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
         channels.add(incoming);
 
         String id = incoming.id().asShortText();
-        int size = pacmans.size() ;
-        Pacman pacman = new Pacman(id, 10*size, 0); // или инициализировать случайные координаты
+        int size = pacmans.size();
+        Pacman pacman = new Pacman(id, 10 * size, 0); // или инициализировать случайные координаты
         System.out.println("Pacman: " + pacman);
         pacmans.put(id, pacman);
 
@@ -53,6 +52,14 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) {
 
+
+        try {
+            MovementDTO movementDTO = new ObjectMapper().readValue(msg, MovementDTO.class);
+            movementManager.addMovementDTO(movementDTO);
+
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
 
 
 //        List<Object> allPacmanDTOs = pacmans.values().stream()
@@ -74,10 +81,9 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
     }
 
 
-
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("channelInactive " +  ctx);
+        System.out.println("channelInactive " + ctx);
     }
 
     @Override
