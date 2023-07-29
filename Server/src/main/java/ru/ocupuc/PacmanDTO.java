@@ -1,19 +1,17 @@
 package ru.ocupuc;
 
 public class PacmanDTO {
-    private final String type = "pacman";
     private String id;
     private int x;
     private int y;
 
-    public PacmanDTO(Pacman pacman) {
-        this.id = pacman.getId();
-        this.x = pacman.getX();
-        this.y = pacman.getY();
+    public PacmanDTO() {
     }
 
-    public String getType() {
-        return type;
+    public PacmanDTO(String id, int x, int y) {
+        this.id = id;
+        this.x = x;
+        this.y = y;
     }
 
     public String getId() {

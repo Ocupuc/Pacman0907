@@ -1,77 +1,77 @@
 package ru.ocupuc;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.group.ChannelGroup;
+import io.netty.channel.group.DefaultChannelGroup;
+import io.netty.util.concurrent.GlobalEventExecutor;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.stream.Collectors;
 
 public class ServerHandler extends SimpleChannelInboundHandler<String> {
-
-    private final ObjectMapper mapper = new ObjectMapper();
-
-    @Override
-    protected void channelRead0(ChannelHandlerContext ctx, String msg) {
-        try {
-            JsonNode message = mapper.readTree(msg);
-
-            if (message.has("type")) {
-                String type = message.get("type").asText();
-                switch (type) {
-                    case "state":
-                        Pacman pacman = GameLoop.pacmen.get(ctx.channel().id().asLongText());
-
-                        if (pacman != null && message.has("leftPressed") && message.has("rightPressed")
-                                && message.has("upPressed") && message.has("downPressed")) {
-                            // Обновляем состояние пакмана на основе полученных данных
-                            pacman.setLeftPressed(message.get("leftPressed").asBoolean());
-                            pacman.setRightPressed(message.get("rightPressed").asBoolean());
-                            pacman.setUpPressed(message.get("upPressed").asBoolean());
-                            pacman.setDownPressed(message.get("downPressed").asBoolean());
-
-
-                            // Сериализуем обновленного пакмана в формат JSON
-                            PacmanDTO updatedPacmanDTO = new PacmanDTO(pacman);
-                            String updatedPacmanJson = mapper.writeValueAsString(updatedPacmanDTO);
-
-                            // Отправляем обновленного пакмана обратно клиенту
-                            ctx.writeAndFlush(updatedPacmanJson);
-                            System.out.println(updatedPacmanJson);
-                        }
-                        break;
-                    default:
-                        throw new RuntimeException("Unknown WS object type: " + type);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    private static final ObjectMapper mapper = new ObjectMapper();
+    //TODO
+    private static final ConcurrentMap<String, Pacman> pacmans = new ConcurrentHashMap<>();
+    private static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        Pacman pacman = new Pacman();
-        pacman.setId(ctx.channel().id().asLongText());
-        pacman.setChannel(ctx.channel());
-        GameLoop.pacmen.put(ctx.channel().id().asLongText(), pacman);
+        Channel incoming = ctx.channel();
+        channels.add(incoming);
 
-        // send the new player to the client
-        PacmanDTO pacmanDTO = new PacmanDTO(pacman);
-        ctx.writeAndFlush(mapper.writeValueAsString(pacmanDTO));
+        String id = incoming.id().asShortText();
+        Pacman pacman = new Pacman(id, 0, 0); // или инициализировать случайные координаты
+        System.out.println("Pacman: " + pacman);
+        pacmans.put(id, pacman);
 
-        // update other clients about the new player
-        GameLoop.sendToEverybodyExcept(pacman, "New player joined: " + pacman.getId());
+        PacmanDTO pacmanDTO = new PacmanDTO(pacman.getId(), pacman.getX(), pacman.getY());
+
+        ServerMessage message = new ServerMessage(MessageType.MY_PACMAN, pacmanDTO);
+        String messageJson = mapper.writeValueAsString(message);
+        incoming.writeAndFlush(messageJson);
+
+
+
     }
+
+
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, String msg) {
+
+
+
+        List<PacmanDTO> allPacmanDTOs = pacmans.values().stream()
+                .map(p -> new PacmanDTO(p.getId(), p.getX(), p.getY()))
+                .collect(Collectors.toList());
+
+        ServerMessage allPacmansMessage = new ServerMessage(MessageType.ENEMY_PACMANS, allPacmanDTOs);
+
+        String allPacmansMessageJson = null;
+        try {
+            allPacmansMessageJson = mapper.writeValueAsString(allPacmansMessage);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        for (Channel channel : channels) {
+            channel.writeAndFlush(allPacmansMessageJson);
+        }
+    }
+
+
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        // inform others about leaving player
-        Pacman pacman = GameLoop.pacmen.get(ctx.channel().id().asLongText());
-        GameLoop.sendToEverybodyExcept(pacman, "Player left: " + pacman.getId());
-
-        GameLoop.pacmen.remove(ctx.channel().id().asLongText());
+        System.out.println("channelInactive " +  ctx);
     }
 
     @Override

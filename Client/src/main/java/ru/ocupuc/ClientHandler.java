@@ -10,17 +10,14 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class ClientHandler extends SimpleChannelInboundHandler<String>{
 
 
+
+
     private Callback onMessageReceivedCallback;
 
     public ClientHandler(Callback onMessageReceivedCallback) {
         this.onMessageReceivedCallback = onMessageReceivedCallback;
 
     }
-
-
-
-
-
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
 
@@ -29,8 +26,9 @@ public class ClientHandler extends SimpleChannelInboundHandler<String>{
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String s) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
-        Pacman pacman = objectMapper.readValue(s, Pacman.class);
-        onMessageReceivedCallback.callback(pacman);
+        Wrapper wrapper = objectMapper.readValue(s, Wrapper.class);
+        GameData.myPacman = wrapper.getPacman();
+
     }
 
     @Override

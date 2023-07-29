@@ -1,18 +1,24 @@
 package ru.ocupuc;
 
 public class Pacman {
-    private String type;
     private String id;
     private int x;
     private int y;
 
-    public String getType() {
-        return type;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pacman pacman)) return false;
+
+        return id.equals(pacman.id);
     }
 
-    public void setType(String type) {
-        this.type = type;
+    @Override
+    public int hashCode() {
+        return id.hashCode();
     }
+
+
 
     public String getId() {
         return id;

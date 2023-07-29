@@ -12,6 +12,9 @@ public class Pacman implements Json.Serializable {
 
     private int x;
     private int y;
+    private float targetX;
+    private float targetY;
+    private float stepSize = 0.05f; // Размер шага для плавного движения
     private int speed = 1;
 
     private boolean leftPressed;
@@ -20,6 +23,11 @@ public class Pacman implements Json.Serializable {
     private boolean downPressed;
 
     public Pacman() {
+    }
+    public Pacman(String id, int x, int y) {
+        this.id = id;
+        this.x = x;
+        this.y = y;
     }
 
     @Override
@@ -36,19 +44,22 @@ public class Pacman implements Json.Serializable {
                 '}';
     }
 
-
     public void act() {
+        // Плавно изменяем координаты пакмана к целевым значениям
         if (isUpPressed() && !isDownPressed()) {
-            y += speed;
+            targetY += stepSize;
         } else if (isDownPressed() && !isUpPressed()) {
-            y -= speed;
+            targetY -= stepSize;
         }
 
         if (isLeftPressed() && !isRightPressed()) {
-            x -= speed;
+            targetX -= stepSize;
         } else if (isRightPressed() && !isLeftPressed()) {
-            x += speed;
+            targetX += stepSize;
         }
+
+        x = (int) Math.round(targetX);
+        y = (int) Math.round(targetY);
     }
 
     @Override
@@ -98,6 +109,13 @@ public class Pacman implements Json.Serializable {
         this.speed = speed;
     }
 
+    public float getStepSize() {
+        return stepSize;
+    }
+
+    public void setStepSize(float stepSize) {
+        this.stepSize = stepSize;
+    }
 
     public boolean isUpPressed() {
         return upPressed;

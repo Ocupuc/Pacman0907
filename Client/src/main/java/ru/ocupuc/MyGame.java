@@ -6,30 +6,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ConcurrentLinkedQueue;
+
+import static ru.ocupuc.GameData.*;
 
 public class MyGame extends ApplicationAdapter {
 
-    private Pacman myPacman; // Для хранения своего пакмана
-    private List<Pacman> enemyPacmans = new ArrayList<>(); // Для хранения вражеских пакманов
-    private ConcurrentLinkedQueue<Pacman> updatesQueue = new ConcurrentLinkedQueue<>(); // Для хранения обновлений
 
-    Network network = new Network((args)->{
-        Pacman pacman = (Pacman) args[0];
-        if (myPacman == null) {
-
-            myPacman = pacman;
-        } else if (myPacman.getId().equals(pacman.getId())) {
-
-            myPacman = pacman;
-        } else {
-
-            updatesQueue.add(pacman);
-        }
-    });
+    Network network = new Network((args)->
+        myPacman = (Pacman) args[0]);
     KeyboardTracker keyboardTracker = new KeyboardTracker(network);
 
     private static final int CELL_SIZE = 50;  // размер клетки
@@ -42,12 +27,6 @@ public class MyGame extends ApplicationAdapter {
     private int pacmanX;  // позиция Pacman'a по X в клетках
     private int pacmanY;  // позиция Pacman'a по Y в клетках
 
-    public static synchronized MyGame getInstance() {
-        if (instance == null) {
-            instance = new MyGame();
-        }
-        return instance;
-    }
 
     public static void setGridSize(int width, int height) {
         gridWidth = width;
