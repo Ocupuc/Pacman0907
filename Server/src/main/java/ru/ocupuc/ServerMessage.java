@@ -1,10 +1,12 @@
 package ru.ocupuc;
 
+import java.util.List;
+
 public class ServerMessage {
     private MessageType type;
-    private Object data;
+    private List<Object> data;
 
-    public ServerMessage(MessageType type, Object data) {
+    public ServerMessage(MessageType type, List<Object> data) {
         this.type = type;
         this.data = data;
     }
@@ -21,7 +23,7 @@ public class ServerMessage {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(List<Object> data) {
         this.data = data;
     }
 }

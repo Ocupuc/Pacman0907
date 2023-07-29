@@ -3,11 +3,13 @@ package ru.ocupuc;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 public class Wrapper {
     private MessageType type;
 
     @JsonProperty("data")
-    private Pacman pacman;
+    private List<Pacman> pacman;
 
     // getters and setters
     public MessageType getType() {
@@ -18,11 +20,11 @@ public class Wrapper {
         this.type = type;
     }
 
-    public Pacman getPacman() {
+    public List<Pacman> getPacman() {
         return pacman;
     }
 
-    public void setPacman(Pacman pacman) {
+    public void setPacman(List<Pacman> pacman) {
         this.pacman = pacman;
     }
 }

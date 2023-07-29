@@ -25,9 +25,12 @@ public class ClientHandler extends SimpleChannelInboundHandler<String>{
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String s) throws Exception {
+        System.out.println(s);
+
         ObjectMapper objectMapper = new ObjectMapper();
+
         Wrapper wrapper = objectMapper.readValue(s, Wrapper.class);
-        GameData.myPacman = wrapper.getPacman();
+        GameData.enemyPacmans = wrapper.getPacman();
 
     }
 

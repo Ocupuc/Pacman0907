@@ -4,24 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="оакмана начал двигаться">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/GameData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Wrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MessageType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/StarterServer.java" afterDir="false" />
+    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="IT's alive">
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/DataSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Pacman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/GameLoop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Wrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Wrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/NettyServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/Pacman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PacmanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PacmanDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid10584.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid17936.log" beforeDir="false" afterPath="$PROJECT_DIR$/hs_err_pid6776.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,8 +72,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -135,7 +127,7 @@
       <recent name="ru.ocupuc.parse" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientApp">
+  <component name="RunManager" selected="Application.ClientApp (1)">
     <configuration name="ClientApp (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.ocupuc.ClientApp" />
       <module name="Client.main" />
@@ -297,7 +289,7 @@
       <workItem from="1690000892276" duration="1242000" />
       <workItem from="1690023586872" duration="17000" />
       <workItem from="1690180960347" duration="12753000" />
-      <workItem from="1690614108283" duration="15396000" />
+      <workItem from="1690614108283" duration="22147000" />
     </task>
     <task id="LOCAL-00001" summary="Старт, два стоковых приложения на libGDX">
       <created>1688880608421</created>
@@ -383,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690545706297</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="IT's alive">
+      <created>1690632566935</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1690632566935</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,6 +413,23 @@
     <MESSAGE value="сервер стал пакман" />
     <MESSAGE value="пробую пока не работает" />
     <MESSAGE value="оакмана начал двигаться" />
-    <option name="LAST_COMMIT_MESSAGE" value="оакмана начал двигаться" />
+    <MESSAGE value="IT's alive" />
+    <option name="LAST_COMMIT_MESSAGE" value="IT's alive" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

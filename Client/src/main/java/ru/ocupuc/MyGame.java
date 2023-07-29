@@ -13,8 +13,10 @@ import static ru.ocupuc.GameData.*;
 public class MyGame extends ApplicationAdapter {
 
 
-    Network network = new Network((args)->
-        myPacman = (Pacman) args[0]);
+    Network network = new Network((args) -> {
+//        Pacman myPacman = (Pacman) args[0];
+
+    });
     KeyboardTracker keyboardTracker = new KeyboardTracker(network);
 
     private static final int CELL_SIZE = 50;  // размер клетки
@@ -53,30 +55,30 @@ public class MyGame extends ApplicationAdapter {
         SpriteBatch batch = new SpriteBatch();
         batch.begin();
         for (Pacman pacman : enemyPacmans) {
-            batch.draw(pacmanTexture, pacman.getX() * CELL_SIZE, pacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+            batch.draw(pacmanTexture, pacman.getX()* CELL_SIZE , pacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
-        // Также рисуем нашего пакмана
+
         if (myPacman != null) {
-            batch.draw(pacmanTexture, myPacman.getX() * CELL_SIZE, myPacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+            batch.draw(pacmanTexture, myPacman.getX()* CELL_SIZE , myPacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
         batch.end();
     }
 
     private void processPendingUpdates() {
-        while (!updatesQueue.isEmpty()) {
-            Pacman pacman = updatesQueue.poll();
-            Optional<Pacman> optionalPacman = enemyPacmans.stream().filter(p -> p.getId().equals(pacman.getId())).findFirst();
-            if (optionalPacman.isPresent()) {
-                // Обновляем позицию существующего пакмана
-                Pacman existingPacman = optionalPacman.get();
-                existingPacman.setX(pacman.getX());
-                existingPacman.setY(pacman.getY());
-            } else {
-                // Добавляем нового пакмана
-                enemyPacmans.add(pacman);
-            }
-        }
-    }
+//        while (!updatesQueue.isEmpty()) {
+//            Pacman pacman = updatesQueue.poll();
+//            Optional<Pacman> optionalPacman = enemyPacmans.stream().filter(p -> p.getId().equals(pacman.getId())).findFirst();
+//            if (optionalPacman.isPresent()) {
+//                // Обновляем позицию существующего пакмана
+//                Pacman existingPacman = optionalPacman.get();
+//                existingPacman.setX(pacman.getX());
+//                existingPacman.setY(pacman.getY());
+//            } else {
+//                // Добавляем нового пакмана
+//                enemyPacmans.add(pacman);
+//            }
+//        }
+   }
 
 
     @Override
