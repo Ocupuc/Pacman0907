@@ -3,6 +3,8 @@ package ru.ocupuc;
 import com.badlogic.gdx.math.Vector2;
 import ru.ocupuc.dto.MovementDTO;
 
+import java.util.Arrays;
+
 import static ru.ocupuc.ServerData.*;
 
 public class MovementManager {
@@ -26,26 +28,76 @@ public class MovementManager {
                 continue;
             }
 
-//            Vector2 currentPosition = pacman.getVector2Position();
-            
-            int currentX = pacman.getX();
-            int currentY = pacman.getY();
             int newX = pacman.getX();
             int newY = pacman.getY();
-//            Vector2 newPosition = new Vector2(newPosition);
 
+            boolean aPressed = dto.isaPressed();
+            boolean dPressed = dto.isdPressed();
+            boolean wPressed = dto.iswPressed();
+            boolean sPressed = dto.issPressed();
 
-            if (dto.isdPressed()) {
-                newX += 1;
+            // Check if both 'a' and 'd' keys are pressed and no other keys are pressed
+            if (aPressed && dPressed && !wPressed && !sPressed) {
+                if (pacman.isMovingRight()) {
+                    if (!pacmanField.isWall(newX + 1, newY)) {
+                        newX += 1;
+                    } else {
+                        pacman.setMovingRight(false);
+                    }
+                } else {
+                    if (!pacmanField.isWall(newX - 1, newY)) {
+                        newX -= 1;
+                    } else {
+                        pacman.setMovingRight(true);
+                    }
+                }
             }
-            if (dto.iswPressed()) {
-                newY += 1;
+            // Check if both 'w' and 's' keys are pressed and no other keys are pressed
+            else if (wPressed && sPressed && !aPressed && !dPressed) {
+                if (pacman.isMovingUp()) {
+                    if (!pacmanField.isWall(newX, newY + 1)) {
+                        newY += 1;
+                    } else {
+                        pacman.setMovingUp(false);
+                    }
+                } else {
+                    if (!pacmanField.isWall(newX, newY - 1)) {
+                        newY -= 1;
+                    } else {
+                        pacman.setMovingUp(true);
+                    }
+                }
             }
-            if (dto.isaPressed()) {
-                newX -= 1;
+            // If 'w' and 'a' keys are pressed and no other keys are pressed
+            else if (wPressed && aPressed && !dPressed && !sPressed) {
+                if (!pacmanField.isWall(newX, newY + 1)) {
+                    newY += 1;
+                } else if (!pacmanField.isWall(newX - 1, newY)) {
+                    newX -= 1;
+                }
             }
-            if (dto.issPressed()) {
-                newY -= 1;
+            // Single key pressed
+            else {
+                if (aPressed) {
+                    if (!pacmanField.isWall(newX - 1, newY)) {
+                        newX -= 1;
+                    }
+                }
+                if (dPressed) {
+                    if (!pacmanField.isWall(newX + 1, newY)) {
+                        newX += 1;
+                    }
+                }
+                if (wPressed) {
+                    if (!pacmanField.isWall(newX, newY + 1)) {
+                        newY += 1;
+                    }
+                }
+                if (sPressed) {
+                    if (!pacmanField.isWall(newX, newY - 1)) {
+                        newY -= 1;
+                    }
+                }
             }
 
             // Check if the new position is a wall
@@ -55,4 +107,5 @@ public class MovementManager {
             }
         }
     }
+
 }

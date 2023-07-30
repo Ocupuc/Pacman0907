@@ -9,6 +9,9 @@ public class Pacman {
     private int x;
     private int y;
 
+    private boolean isMovingRight;
+    private boolean isMovingUp;
+
     private boolean leftPressed;
     private boolean rightPressed;
     private boolean upPressed;
@@ -21,14 +24,6 @@ public class Pacman {
         this.id = id;
         this.x = x;
         this.y = y;
-    }
-    public Vector2 getVector2Position() {
-        return new Vector2(x, y);
-    }
-
-    public void setPositionFromVector2(Vector2 position) {
-        this.x = (int) position.x;
-        this.y = (int) position.y;
     }
 
 
@@ -89,4 +84,19 @@ public class Pacman {
         this.rightPressed = rightPressed;
     }
 
+    public boolean isMovingRight() {
+        return isMovingRight;
+    }
+
+    public void setMovingRight(boolean movingRight) {
+        isMovingRight = movingRight;
+    }
+
+    public boolean isMovingUp() {
+        return isMovingUp;
+    }
+
+    public void setMovingUp(boolean movingUp) {
+        isMovingUp = movingUp;
+    }
 }
