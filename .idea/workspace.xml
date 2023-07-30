@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="связь налажена">
+    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="увеличил поле">
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PacmanField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/resources/pacman_field.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/Pacman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/StarterServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/StarterServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +101,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/libGDX/Pacman0907/Client/src/main/resources",
+    "last_opened_file_path": "D:/libGDX/Pacman0907/Server/src/main/resources",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -109,18 +113,18 @@
       <recent name="ru.ocupuc" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\libGDX\Pacman0907\Server\src\main\resources" />
       <recent name="D:\libGDX\Pacman0907\Client\src\main\resources" />
       <recent name="D:\libGDX\Pacman0907\Client\src\main\java\ru\ocupuc" />
       <recent name="D:\libGDX\Pacman0907\Client\src\main" />
       <recent name="D:\libGDX\Pacman0907\Server\src\main\java\ru\ocupuc" />
-      <recent name="D:\libGDX\Pacman0907\Client" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ru.ocupuc" />
       <recent name="ru.ocupuc.parse" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientApp">
+  <component name="RunManager" selected="Application.StarterServer">
     <configuration name="ClientApp" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.ocupuc.ClientApp" />
       <module name="Client.main" />
@@ -299,7 +303,7 @@
       <workItem from="1690614108283" duration="34310000" />
       <workItem from="1690651548212" duration="143000" />
       <workItem from="1690651698452" duration="995000" />
-      <workItem from="1690682171336" duration="6905000" />
+      <workItem from="1690682171336" duration="12249000" />
     </task>
     <task id="LOCAL-00001" summary="Старт, два стоковых приложения на libGDX">
       <created>1688880608421</created>
@@ -427,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690689159875</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="увеличил поле">
+      <created>1690689721538</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1690689721538</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,7 +473,8 @@
     <MESSAGE value="наконец то их двое" />
     <MESSAGE value="наконец то их трое и они двигаются вправо" />
     <MESSAGE value="связь налажена" />
-    <option name="LAST_COMMIT_MESSAGE" value="связь налажена" />
+    <MESSAGE value="увеличил поле" />
+    <option name="LAST_COMMIT_MESSAGE" value="увеличил поле" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

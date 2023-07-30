@@ -1,7 +1,5 @@
 package ru.ocupuc;
 
-import io.netty.channel.Channel;
-
 
 public class Pacman {
     private String id;
