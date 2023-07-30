@@ -4,21 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="аддМап">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/enums/FieldType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/enums/FieldType.java" afterDir="false" />
+    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="добавили стены но не отрисовали">
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/FieldParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MapCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MapToDTOConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/dto/MapDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/enums/MessageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MovementType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/enums/MovementType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Wrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/Wrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/DataSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/DataSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/enums/MessageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MovementManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MovementManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PacmanField.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PacmanField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/StarterServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/StarterServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/enums/FieldType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/enums/CellType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +72,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -133,7 +128,7 @@
       <recent name="ru.ocupuc.parse" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientApp2">
+  <component name="RunManager" selected="Application.ClientApp">
     <configuration name="ClientApp" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.ocupuc.ClientApp" />
       <module name="Client.main" />
@@ -446,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690689721538</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="добавили стены но не отрисовали">
+      <created>1690711544979</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1690711544979</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +484,8 @@
     <MESSAGE value="наконец то их трое и они двигаются вправо" />
     <MESSAGE value="связь налажена" />
     <MESSAGE value="увеличил поле" />
-    <option name="LAST_COMMIT_MESSAGE" value="увеличил поле" />
+    <MESSAGE value="добавили стены но не отрисовали" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавили стены но не отрисовали" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

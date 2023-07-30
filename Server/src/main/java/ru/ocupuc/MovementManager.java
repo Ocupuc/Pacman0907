@@ -26,25 +26,32 @@ public class MovementManager {
                 continue;
             }
 
-            Vector2 currentPosition = pacman.getVector2Position();
-            Vector2 newPosition = new Vector2(currentPosition);
+//            Vector2 currentPosition = pacman.getVector2Position();
+            
+            int currentX = pacman.getX();
+            int currentY = pacman.getY();
+            int newX = pacman.getX();
+            int newY = pacman.getY();
+//            Vector2 newPosition = new Vector2(newPosition);
+
 
             if (dto.isdPressed()) {
-                newPosition.x += 1;
+                newX += 1;
             }
             if (dto.iswPressed()) {
-                newPosition.y += 1;
+                newY += 1;
             }
             if (dto.isaPressed()) {
-                newPosition.x -= 1;
+                newX -= 1;
             }
             if (dto.issPressed()) {
-                newPosition.y -= 1;
+                newY -= 1;
             }
 
             // Check if the new position is a wall
-            if (!pacmanField.isWall(newPosition)) {
-                pacman.setPositionFromVector2(newPosition);
+            if (!pacmanField.isWall(newX, newY)) {
+                pacman.setX(newX);
+                pacman.setY(newY);
             }
         }
     }

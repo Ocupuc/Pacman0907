@@ -21,7 +21,7 @@ public class ServerData {
 
     static {
         try {
-            pacmanField = new PacmanField(PACMAN_FIELD_FILE);
+            pacmanField = FieldParser.parse(PACMAN_FIELD_FILE);
         } catch (Exception e) {
             System.err.println("Ошибка при инициализации поля Pacman: " + e.getMessage());
             throw new RuntimeException(e);  // Чтобы остановить работу сервера в случае ошибки
