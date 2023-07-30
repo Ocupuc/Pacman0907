@@ -1,4 +1,4 @@
-package ru.ocupuc;
+package ru.ocupuc.dto;
 
 public class PacmanDTO {
     private String id;

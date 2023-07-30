@@ -44,23 +44,23 @@ public class Pacman implements Json.Serializable {
                 '}';
     }
 
-    public void act() {
-        // Плавно изменяем координаты пакмана к целевым значениям
-        if (isUpPressed() && !isDownPressed()) {
-            targetY += stepSize;
-        } else if (isDownPressed() && !isUpPressed()) {
-            targetY -= stepSize;
-        }
-
-        if (isLeftPressed() && !isRightPressed()) {
-            targetX -= stepSize;
-        } else if (isRightPressed() && !isLeftPressed()) {
-            targetX += stepSize;
-        }
-
-        x = (int) Math.round(targetX);
-        y = (int) Math.round(targetY);
-    }
+//    public void act() {
+//        // Плавно изменяем координаты пакмана к целевым значениям
+//        if (isUpPressed() && !isDownPressed()) {
+//            targetY += stepSize;
+//        } else if (isDownPressed() && !isUpPressed()) {
+//            targetY -= stepSize;
+//        }
+//
+//        if (isLeftPressed() && !isRightPressed()) {
+//            targetX -= stepSize;
+//        } else if (isRightPressed() && !isLeftPressed()) {
+//            targetX += stepSize;
+//        }
+//
+//        x = (int) Math.round(targetX);
+//        y = (int) Math.round(targetY);
+//    }
 
     @Override
     public void write(Json json) {

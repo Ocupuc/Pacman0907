@@ -1,22 +1,14 @@
 package ru.ocupuc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.channel.group.ChannelGroup;
-import io.netty.channel.group.DefaultChannelGroup;
-import io.netty.util.concurrent.GlobalEventExecutor;
+import ru.ocupuc.dto.MovementDTO;
+import ru.ocupuc.dto.PacmanDTO;
 
-import java.io.IOException;
 import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.stream.Collectors;
 
 import static ru.ocupuc.ServerData.channels;
 import static ru.ocupuc.ServerData.pacmans;
@@ -52,32 +44,15 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) {
 
-
         try {
             MovementDTO movementDTO = new ObjectMapper().readValue(msg, MovementDTO.class);
             movementManager.addMovementDTO(movementDTO);
 
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            System.out.println("Ошибка при десериализации сообщения: " + e.getMessage());
         }
 
 
-//        List<Object> allPacmanDTOs = pacmans.values().stream()
-//                .map(p -> new PacmanDTO(p.getId(), p.getX(), p.getY()))
-//                .collect(Collectors.toList());
-//
-//        ServerMessage allPacmansMessage = new ServerMessage(MessageType.ENEMY_PACMANS, allPacmanDTOs);
-//
-//        String allPacmansMessageJson = null;
-//        try {
-//            allPacmansMessageJson = mapper.writeValueAsString(allPacmansMessage);
-//        } catch (JsonProcessingException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        for (Channel channel : channels) {
-//            channel.writeAndFlush(allPacmansMessageJson);
-//        }
     }
 
 

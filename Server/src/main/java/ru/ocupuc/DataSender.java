@@ -3,6 +3,7 @@ package ru.ocupuc;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.channel.Channel;
+import ru.ocupuc.dto.PacmanDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;

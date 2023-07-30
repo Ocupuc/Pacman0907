@@ -1,7 +1,6 @@
 package ru.ocupuc;
 
-import java.util.HashSet;
-import java.util.Set;
+import ru.ocupuc.dto.MovementDTO;
 
 import static ru.ocupuc.ServerData.movementDTOs;
 import static ru.ocupuc.ServerData.pacmans;
@@ -20,11 +19,23 @@ public class MovementManager {
 
 
     public void move() {
-        for (MovementDTO movementDTO : movementDTOs) {
-            String id = movementDTO.getId();
+        for (MovementDTO dto : movementDTOs) {
+            String id = dto.getId();
             Pacman pacman = pacmans.get(id);
-            if (movementDTO.isdPressed()) {
+            if (pacman == null) {
+                continue;
+            }
+            if (dto.isdPressed()) {
                 pacman.setX(pacman.getX() + 1);
+            }
+            if (dto.iswPressed()) {
+                pacman.setY(pacman.getY() + 1);
+            }
+            if (dto.isaPressed()) {
+                pacman.setX(pacman.getX() - 1);
+            }
+            if (dto.issPressed()) {
+                pacman.setY(pacman.getY() - 1);
             }
         }
     }

@@ -6,9 +6,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import java.util.Optional;
-
-import static ru.ocupuc.GameData.*;
+import static ru.ocupuc.GameData.enemyPacmans;
+import static ru.ocupuc.GameData.myPacman;
 
 public class MyGame extends ApplicationAdapter {
 
