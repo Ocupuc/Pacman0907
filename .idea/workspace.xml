@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="наконец то их трое и они двигаются вправо">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/resources/pac-man.gif" afterDir="false" />
+    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="связь налажена">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/DataSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/DataSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MovementDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/dto/MovementDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MovementManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MovementManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/Pacman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PacmanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/dto/PacmanDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +121,7 @@
       <recent name="ru.ocupuc.parse" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientApp (1)">
+  <component name="RunManager" selected="Application.ClientApp">
     <configuration name="ClientApp" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.ocupuc.ClientApp" />
       <module name="Client.main" />
@@ -308,7 +300,7 @@
       <workItem from="1690614108283" duration="34310000" />
       <workItem from="1690651548212" duration="143000" />
       <workItem from="1690651698452" duration="995000" />
-      <workItem from="1690682171336" duration="2482000" />
+      <workItem from="1690682171336" duration="3508000" />
     </task>
     <task id="LOCAL-00001" summary="Старт, два стоковых приложения на libGDX">
       <created>1688880608421</created>
@@ -415,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690649611080</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="связь налажена">
+      <created>1690684958199</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1690684958199</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,7 +448,8 @@
     <MESSAGE value="IT's alive" />
     <MESSAGE value="наконец то их двое" />
     <MESSAGE value="наконец то их трое и они двигаются вправо" />
-    <option name="LAST_COMMIT_MESSAGE" value="наконец то их трое и они двигаются вправо" />
+    <MESSAGE value="связь налажена" />
+    <option name="LAST_COMMIT_MESSAGE" value="связь налажена" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

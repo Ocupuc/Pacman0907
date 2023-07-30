@@ -27,7 +27,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
 
         String id = incoming.id().asShortText();
         int size = pacmans.size();
-        Pacman pacman = new Pacman(id, 10 * size, 0); // или инициализировать случайные координаты
+        Pacman pacman = new Pacman(id, 3 * size, 0); // или инициализировать случайные координаты
         System.out.println("Pacman: " + pacman);
         pacmans.put(id, pacman);
 
@@ -58,13 +58,20 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("channelInactive " + ctx);
+        Channel incoming = ctx.channel();
+        String id = incoming.id().asShortText();
+        pacmans.remove(id);
+
+        super.channelInactive(ctx);
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        cause.printStackTrace();
-        ctx.close();
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        Channel incoming = ctx.channel();
+        String id = incoming.id().asShortText();
+        pacmans.remove(id);
+
+        super.exceptionCaught(ctx, cause);
     }
 
 
