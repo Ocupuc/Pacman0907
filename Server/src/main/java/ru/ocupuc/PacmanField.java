@@ -4,6 +4,7 @@ import java.util.*;
 import java.nio.file.*;
 import java.io.IOException;
 import com.badlogic.gdx.math.Vector2;
+import ru.ocupuc.enums.FieldType;
 
 public class PacmanField {
 
@@ -11,12 +12,7 @@ public class PacmanField {
     private int height;
     private Map<Vector2, FieldType> field;
 
-    public enum FieldType {
-        EMPTY,
-        WALL,
-        PILL
-        // Other types of objects can be added here
-    }
+
 
     public PacmanField(String filename) {
         field = new HashMap<>();

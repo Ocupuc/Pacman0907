@@ -2,6 +2,7 @@ package ru.ocupuc;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.ocupuc.enums.MessageType;
 
 import java.util.List;
 

@@ -50,9 +50,10 @@ public class MyGame extends ApplicationAdapter {
     @Override
     public void render() {
         processPendingUpdates();
-        ScreenUtils.clear(0f, 0f, 0.2f, 1.0f);
+        ScreenUtils.clear(0f, 0f, 0.1f, 1.0f);
         SpriteBatch batch = new SpriteBatch();
         batch.begin();
+
         for (Pacman pacman : enemyPacmans) {
             batch.draw(pacmanTexture, pacman.getX()* CELL_SIZE , pacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }

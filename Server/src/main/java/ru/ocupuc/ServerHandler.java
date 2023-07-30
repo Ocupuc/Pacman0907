@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ocupuc.dto.MovementDTO;
 import ru.ocupuc.dto.PacmanDTO;
+import ru.ocupuc.enums.MessageType;
 
 import java.util.Collections;
 
@@ -28,7 +29,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
             channels.add(incoming);
             String id = incoming.id().asShortText();
             int size = pacmans.size();
-            Pacman pacman = new Pacman(id, 3 * size, 0); // или инициализировать случайные координаты
+            Pacman pacman = new Pacman(id, 1, 1); // или инициализировать случайные координаты
             logger.info("Pacman: {}", pacman);
             pacmans.put(id, pacman);
             PacmanDTO pacmanDTO = new PacmanDTO(pacman.getId(), pacman.getX(), pacman.getY());

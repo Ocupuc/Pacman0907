@@ -3,6 +3,7 @@ package ru.ocupuc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import ru.ocupuc.enums.MessageType;
 
 
 public class ClientHandler extends SimpleChannelInboundHandler<String> {

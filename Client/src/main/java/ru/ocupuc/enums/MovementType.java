@@ -1,4 +1,4 @@
-package ru.ocupuc;
+package ru.ocupuc.enums;
 
 public enum MovementType {
     UP,

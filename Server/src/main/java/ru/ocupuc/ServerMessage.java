@@ -1,5 +1,7 @@
 package ru.ocupuc;
 
+import ru.ocupuc.enums.MessageType;
+
 import java.util.List;
 
 public class ServerMessage {
