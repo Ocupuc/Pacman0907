@@ -4,10 +4,10 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import static ru.ocupuc.GameData.enemyPacmans;
-import static ru.ocupuc.GameData.myPacman;
+import static ru.ocupuc.GameData.*;
 
 public class MyGame extends ApplicationAdapter {
 
@@ -25,6 +25,9 @@ public class MyGame extends ApplicationAdapter {
 
 
     private Texture pacmanTexture;
+    private Texture wallTexture;
+    private Texture pillTexture;
+
     private int pacmanX;  // позиция Pacman'a по X в клетках
     private int pacmanY;  // позиция Pacman'a по Y в клетках
 
@@ -44,6 +47,8 @@ public class MyGame extends ApplicationAdapter {
         Gdx.input.setInputProcessor(keyboardTracker);
         instance = this;
         pacmanTexture = new Texture(Gdx.files.internal("pacman.png"));
+        wallTexture = new Texture(Gdx.files.internal("wall.png"));
+       pillTexture = new Texture(Gdx.files.internal("pill.png"));
         processPendingUpdates();
     }
 
@@ -55,11 +60,18 @@ public class MyGame extends ApplicationAdapter {
         batch.begin();
 
         for (Pacman pacman : enemyPacmans) {
-            batch.draw(pacmanTexture, pacman.getX()* CELL_SIZE , pacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+            batch.draw(pacmanTexture, pacman.getX() * CELL_SIZE, pacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        }
+        for (Vector2 wall : gameMap.getWalls()) {
+            batch.draw(wallTexture, wall.x * CELL_SIZE, wall.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        }
+
+        for (Vector2 pill : gameMap.getPills()) {
+            batch.draw(pillTexture, pill.x * CELL_SIZE, pill.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
 
         if (myPacman != null) {
-            batch.draw(pacmanTexture, myPacman.getX()* CELL_SIZE , myPacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+            batch.draw(pacmanTexture, myPacman.getX() * CELL_SIZE, myPacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
         batch.end();
     }
@@ -78,7 +90,7 @@ public class MyGame extends ApplicationAdapter {
 //                enemyPacmans.add(pacman);
 //            }
 //        }
-   }
+    }
 
 
     @Override

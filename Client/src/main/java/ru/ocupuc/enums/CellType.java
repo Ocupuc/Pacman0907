@@ -10,6 +10,13 @@ public enum CellType {
 
     private final short code;
 
+    public static CellType getByCode(short code) {
+        return Arrays.stream(CellType.values())
+                .filter(ft -> ft.code == code)
+                .findFirst()
+                .orElse(null);
+    }
+
     CellType(short code) {
         this.code = code;
     }
@@ -17,6 +24,4 @@ public enum CellType {
     public short getCode() {
         return code;
     }
-
-
 }

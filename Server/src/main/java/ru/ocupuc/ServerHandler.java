@@ -8,6 +8,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.ocupuc.dto.MapDTO;
 import ru.ocupuc.dto.MovementDTO;
 import ru.ocupuc.dto.PacmanDTO;
 import ru.ocupuc.enums.MessageType;
@@ -33,9 +34,18 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
             logger.info("Pacman: {}", pacman);
             pacmans.put(id, pacman);
             PacmanDTO pacmanDTO = new PacmanDTO(pacman.getId(), pacman.getX(), pacman.getY());
-            ServerMessage message = new ServerMessage(MessageType.MY_PACMAN, Collections.singletonList(pacmanDTO));
+
+            MapDTO convert = MapToDTOConverter.convert(ServerData.pacmanField);
+
+            ServerMessage message = new ServerMessage(MessageType.MY_PACMAN,
+                    Collections.singletonList(pacmanDTO),
+                    convert.getLength(),convert.getData());
             String messageJson = mapper.writeValueAsString(message);
             incoming.writeAndFlush(messageJson);
+
+
+
+
         } catch (Exception e) {
             logger.error("Ошибка при обработке события channelActive", e);
         }

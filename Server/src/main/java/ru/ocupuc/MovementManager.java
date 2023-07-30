@@ -11,7 +11,11 @@ public class MovementManager {
 
 
     public void addMovementDTO(MovementDTO dto) {
-    //    System.out.println(dto.toString());
+  if (dto.getId()==null) {
+      System.out.println(dto.toString());
+      return;
+  }
+
         movementDTOs.remove(dto);
         movementDTOs.add(dto);
     //    movementDTOs.forEach(System.out::println);
@@ -79,24 +83,24 @@ public class MovementManager {
             // Single key pressed
             else {
                 if (aPressed) {
-                    if (!pacmanField.isWall(newX - 1, newY)) {
+           //         if (!pacmanField.isWall(newX - 1, newY)) {
                         newX -= 1;
                     }
-                }
+       //         }
                 if (dPressed) {
-                    if (!pacmanField.isWall(newX + 1, newY)) {
+//                    if (!pacmanField.isWall(newX + 1, newY)) {
                         newX += 1;
-                    }
+//                    }
                 }
                 if (wPressed) {
-                    if (!pacmanField.isWall(newX, newY + 1)) {
+      //              if (!pacmanField.isWall(newX, newY + 1)) {
                         newY += 1;
-                    }
+         //           }
                 }
                 if (sPressed) {
-                    if (!pacmanField.isWall(newX, newY - 1)) {
+   //                 if (!pacmanField.isWall(newX, newY - 1)) {
                         newY -= 1;
-                    }
+     //               }
                 }
             }
 
@@ -104,6 +108,9 @@ public class MovementManager {
             if (!pacmanField.isWall(newX, newY)) {
                 pacman.setX(newX);
                 pacman.setY(newY);
+            }
+            if(pacmanField.isPill(newX, newY)) {
+                pacmanField.setEmpty(newX,newY);
             }
         }
     }

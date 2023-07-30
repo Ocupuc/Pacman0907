@@ -24,7 +24,11 @@ public class ClientHandler extends SimpleChannelInboundHandler<String> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String s) throws Exception {
 
+
+
+
         if (!s.startsWith("{") || !s.endsWith("}")) {
+            System.out.println("fuckup " + s);
             return;
         }
         ObjectMapper objectMapper = new ObjectMapper();
@@ -35,6 +39,8 @@ public class ClientHandler extends SimpleChannelInboundHandler<String> {
             }
 
             GameData.enemyPacmans = wrapper.getPacman();
+            MapDTO mapDTO = new MapDTO(wrapper.getLength(), wrapper.getData());
+            GameData.gameMap = MapDtoToGameMapConverter.convert(mapDTO);
         } catch (Exception e) {
             System.out.println("error: " + s);
         }

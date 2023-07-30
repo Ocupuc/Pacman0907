@@ -4,6 +4,7 @@ public class Pacman {
     private String id;
     private int x;
     private int y;
+    private int score;
 
     @Override
     public boolean equals(Object o) {

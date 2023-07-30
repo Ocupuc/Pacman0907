@@ -4,7 +4,7 @@ import ru.ocupuc.enums.CellType;
 
 public class MapCell {
     private final int x, y;
-    private final CellType cellType;
+    private  CellType cellType;
 
     public MapCell(int x, int y, CellType cellType) {
         this.x = x;
@@ -40,4 +40,7 @@ public class MapCell {
         return cellType;
     }
 
+    public void setCellType(CellType cellType) {
+        this.cellType = cellType;
+    }
 }

@@ -9,6 +9,8 @@ public class Pacman {
     private int x;
     private int y;
 
+    private int score;
+
     private boolean isMovingRight;
     private boolean isMovingUp;
 
@@ -26,6 +28,20 @@ public class Pacman {
         this.y = y;
     }
 
+    @Override
+    public String toString() {
+        return "Pacman{" +
+                "id='" + id + '\'' +
+                ", x=" + x +
+                ", y=" + y +
+                ", isMovingRight=" + isMovingRight +
+                ", isMovingUp=" + isMovingUp +
+                ", leftPressed=" + leftPressed +
+                ", rightPressed=" + rightPressed +
+                ", upPressed=" + upPressed +
+                ", downPressed=" + downPressed +
+                '}';
+    }
 
     public String getId() {
         return id;

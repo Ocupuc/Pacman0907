@@ -9,8 +9,13 @@ import java.util.List;
 public class Wrapper {
     private MessageType type;
 
-    @JsonProperty("data")
+    @JsonProperty("pacmans")
     private List<Pacman> pacman;
+
+   private int length;
+
+    @JsonProperty("data")
+    private  short[] data;
 
     // getters and setters
     public MessageType getType() {
@@ -27,6 +32,22 @@ public class Wrapper {
 
     public void setPacman(List<Pacman> pacman) {
         this.pacman = pacman;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public short[] getData() {
+        return data;
+    }
+
+    public void setData(short[] data) {
+        this.data = data;
     }
 }
 

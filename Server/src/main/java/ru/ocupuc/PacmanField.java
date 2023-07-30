@@ -33,8 +33,24 @@ public class PacmanField {
         return height;
     }
 
-    public boolean isWall(int newX, int newY) {
-        MapCell mapCell = field.get(field.indexOf(new MapCell(newX, newY, null)));
-        return mapCell.getCellType() == CellType.WALL;
+    public boolean isWall(int newX, int newY){
+        return isType(newX, newY,CellType.WALL);
+    }
+    public boolean isPill(int newX, int newY){
+        return isType(newX, newY,CellType.PILL);
+    }
+
+
+    private boolean isType(int newX, int newY, CellType type) {
+        MapCell mapCell = getByCoordinates(newX, newY);
+        return mapCell.getCellType() == type;
+    }
+
+    public void setEmpty(int newX, int newY) {
+        MapCell mapCell = getByCoordinates(newX, newY);
+        mapCell.setCellType(CellType.EMPTY);
+    }
+    private  MapCell getByCoordinates(int x, int y){
+        return field.get(field.indexOf(new MapCell(x, y, null)));
     }
 }
