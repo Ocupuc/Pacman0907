@@ -1,6 +1,8 @@
 package ru.ocupuc;
 
 
+import com.badlogic.gdx.math.Vector2;
+
 public class Pacman {
     private String id;
 
@@ -19,6 +21,14 @@ public class Pacman {
         this.id = id;
         this.x = x;
         this.y = y;
+    }
+    public Vector2 getVector2Position() {
+        return new Vector2(x, y);
+    }
+
+    public void setPositionFromVector2(Vector2 position) {
+        this.x = (int) position.x;
+        this.y = (int) position.y;
     }
 
 

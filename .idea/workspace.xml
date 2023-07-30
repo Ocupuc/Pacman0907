@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="увеличил поле">
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/PacmanField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/resources/pacman_field.txt" afterDir="false" />
+    <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="распарсил стены с файла , получил HashMap">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MovementManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MovementManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/Pacman.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/Pacman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/StarterServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/StarterServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +99,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/libGDX/Pacman0907/Server/src/main/resources",
+    "last_opened_file_path": "D:/libGDX/Alliens/gdx-panzers-server",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -265,7 +263,6 @@
       <item itemvalue="Application.StarterServer" />
       <item itemvalue="Application.ClientApp" />
       <item itemvalue="Application.ClientApp2" />
-      <item itemvalue="Application.ClientApp (1)" />
       <item itemvalue="Gradle.Server [build]" />
       <item itemvalue="Gradle.Server [buildDependents]" />
       <item itemvalue="Gradle.Server [buildNeeded]" />

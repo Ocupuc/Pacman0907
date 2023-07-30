@@ -1,9 +1,9 @@
 package ru.ocupuc;
 
+import com.badlogic.gdx.math.Vector2;
 import ru.ocupuc.dto.MovementDTO;
 
-import static ru.ocupuc.ServerData.movementDTOs;
-import static ru.ocupuc.ServerData.pacmans;
+import static ru.ocupuc.ServerData.*;
 
 public class MovementManager {
 
@@ -25,17 +25,26 @@ public class MovementManager {
             if (pacman == null) {
                 continue;
             }
+
+            Vector2 currentPosition = pacman.getVector2Position();
+            Vector2 newPosition = new Vector2(currentPosition);
+
             if (dto.isdPressed()) {
-                pacman.setX(pacman.getX() + 1);
+                newPosition.x += 1;
             }
             if (dto.iswPressed()) {
-                pacman.setY(pacman.getY() + 1);
+                newPosition.y += 1;
             }
             if (dto.isaPressed()) {
-                pacman.setX(pacman.getX() - 1);
+                newPosition.x -= 1;
             }
             if (dto.issPressed()) {
-                pacman.setY(pacman.getY() - 1);
+                newPosition.y -= 1;
+            }
+
+            // Check if the new position is a wall
+            if (!pacmanField.isWall(newPosition)) {
+                pacman.setPositionFromVector2(newPosition);
             }
         }
     }
