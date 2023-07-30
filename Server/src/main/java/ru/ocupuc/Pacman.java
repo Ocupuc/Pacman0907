@@ -1,20 +1,13 @@
 package ru.ocupuc;
 
-import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonValue;
 import io.netty.channel.Channel;
-import lombok.Data;
 
 
-public class Pacman  {
+public class Pacman {
     private String id;
-    private Channel channel;
 
     private int x;
     private int y;
-
-    private float stepSize = 0.05f; // Размер шага для плавного движения
-    private int speed = 1;
 
     private boolean leftPressed;
     private boolean rightPressed;
@@ -23,16 +16,12 @@ public class Pacman  {
 
     public Pacman() {
     }
+
     public Pacman(String id, int x, int y) {
         this.id = id;
         this.x = x;
         this.y = y;
     }
-
-
-
-
-
 
 
     public String getId() {
@@ -59,21 +48,6 @@ public class Pacman  {
         this.y = y;
     }
 
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public float getStepSize() {
-        return stepSize;
-    }
-
-    public void setStepSize(float stepSize) {
-        this.stepSize = stepSize;
-    }
 
     public boolean isUpPressed() {
         return upPressed;
@@ -107,11 +81,4 @@ public class Pacman  {
         this.rightPressed = rightPressed;
     }
 
-    public Channel getChannel() {
-        return channel;
-    }
-
-    public void setChannel(Channel channel) {
-        this.channel = channel;
-    }
 }

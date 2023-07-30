@@ -12,7 +12,8 @@ public class ClientApp {
 
 
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-        config.setTitle("Hello Client!");
+        config.setTitle("Pac-Man");
+        config.setWindowedMode(1000,1000);
         new Lwjgl3Application(new MyGame(), config);
 
 
