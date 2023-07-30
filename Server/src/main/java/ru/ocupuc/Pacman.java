@@ -6,14 +6,13 @@ import io.netty.channel.Channel;
 import lombok.Data;
 
 
-public class Pacman implements Json.Serializable {
+public class Pacman  {
     private String id;
     private Channel channel;
 
     private int x;
     private int y;
-    private float targetX;
-    private float targetY;
+
     private float stepSize = 0.05f; // Размер шага для плавного движения
     private int speed = 1;
 
@@ -30,52 +29,11 @@ public class Pacman implements Json.Serializable {
         this.y = y;
     }
 
-    @Override
-    public String toString() {
-        return "Pacman{" +
-                "id='" + id + '\'' +
-                ", x=" + x +
-                ", y=" + y +
-                ", speed=" + speed +
-                ", leftPressed=" + leftPressed +
-                ", rightPressed=" + rightPressed +
-                ", upPressed=" + upPressed +
-                ", downPressed=" + downPressed +
-                '}';
-    }
 
-//    public void act() {
-//        // Плавно изменяем координаты пакмана к целевым значениям
-//        if (isUpPressed() && !isDownPressed()) {
-//            targetY += stepSize;
-//        } else if (isDownPressed() && !isUpPressed()) {
-//            targetY -= stepSize;
-//        }
-//
-//        if (isLeftPressed() && !isRightPressed()) {
-//            targetX -= stepSize;
-//        } else if (isRightPressed() && !isLeftPressed()) {
-//            targetX += stepSize;
-//        }
-//
-//        x = (int) Math.round(targetX);
-//        y = (int) Math.round(targetY);
-//    }
 
-    @Override
-    public void write(Json json) {
-        json.writeValue("x", x);
-        json.writeValue("y", y);
-        json.writeValue("id", id);
-    }
 
-    @Override
-    public void read(Json json, JsonValue jsonData) {
-        this.x = jsonData.getInt("x");
-        this.y = jsonData.getInt("y");
-        this.id = jsonData.getString("id");
-        // add more fields as necessary
-    }
+
+
 
     public String getId() {
         return id;
