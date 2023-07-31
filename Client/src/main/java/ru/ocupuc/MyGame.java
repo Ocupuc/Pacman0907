@@ -55,12 +55,12 @@ public class MyGame extends ApplicationAdapter {
         pillTexture = new Texture(Gdx.files.internal("pill.png"));
 
 
-        processPendingUpdates();
+
     }
 
     @Override
     public void render() {
-        processPendingUpdates();
+
         ScreenUtils.clear(0f, 0f, 0.1f, 1.0f);
         SpriteBatch batch = new SpriteBatch();
         batch.begin();
@@ -84,21 +84,7 @@ public class MyGame extends ApplicationAdapter {
         batch.end();
     }
 
-    private void processPendingUpdates() {
-//        while (!updatesQueue.isEmpty()) {
-//            Pacman pacman = updatesQueue.poll();
-//            Optional<Pacman> optionalPacman = enemyPacmans.stream().filter(p -> p.getId().equals(pacman.getId())).findFirst();
-//            if (optionalPacman.isPresent()) {
-//                // Обновляем позицию существующего пакмана
-//                Pacman existingPacman = optionalPacman.get();
-//                existingPacman.setX(pacman.getX());
-//                existingPacman.setY(pacman.getY());
-//            } else {
-//                // Добавляем нового пакмана
-//                enemyPacmans.add(pacman);
-//            }
-//        }
-    }
+
 
 
     @Override
