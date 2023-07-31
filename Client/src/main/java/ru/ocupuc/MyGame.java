@@ -15,16 +15,11 @@ import static ru.ocupuc.GameData.*;
 public class MyGame extends ApplicationAdapter {
 
 
-    Network network = new Network((args) -> {
-//        Pacman myPacman = (Pacman) args[0];
-
-    });
+    Network network = new Network((args) -> { });
     KeyboardTracker keyboardTracker = new KeyboardTracker(network);
 
     private static final int CELL_SIZE = 30;  // размер клетки
-    private static int gridWidth;   // ширина сетки
-    private static int gridHeight;  // высота сетки
-    private static MyGame instance;
+
 
     private List<Texture> pacmanTextures = new ArrayList<Texture>();
 
@@ -32,24 +27,12 @@ public class MyGame extends ApplicationAdapter {
     private Texture wallTexture;
     private Texture pillTexture;
 
-    private int pacmanX;  // позиция Pacman'a по X в клетках
-    private int pacmanY;  // позиция Pacman'a по Y в клетках
 
-
-    public static void setGridSize(int width, int height) {
-        gridWidth = width;
-        gridHeight = height;
-    }
-
-    public void updatePacmanPosition(int x, int y) {
-
-    }
 
     @Override
     public void create() {
 
         Gdx.input.setInputProcessor(keyboardTracker);
-        instance = this;
         pacmanTexture = new Texture(Gdx.files.internal("pacman.png"));
         wallTexture = new Texture(Gdx.files.internal("wall.png"));
         pillTexture = new Texture(Gdx.files.internal("pill.png"));
@@ -90,5 +73,7 @@ public class MyGame extends ApplicationAdapter {
     @Override
     public void dispose() {
         pacmanTexture.dispose();
+        wallTexture.dispose();
+        pillTexture.dispose();
     }
 }
