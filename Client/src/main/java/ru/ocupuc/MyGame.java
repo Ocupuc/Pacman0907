@@ -21,12 +21,12 @@ public class MyGame extends ApplicationAdapter {
     });
     KeyboardTracker keyboardTracker = new KeyboardTracker(network);
 
-    private static final int CELL_SIZE = 50;  // размер клетки
+    private static final int CELL_SIZE = 30;  // размер клетки
     private static int gridWidth;   // ширина сетки
     private static int gridHeight;  // высота сетки
     private static MyGame instance;
 
-private List<Texture> pacmanTextures = new ArrayList<Texture>();
+    private List<Texture> pacmanTextures = new ArrayList<Texture>();
 
     private Texture pacmanTexture;
     private Texture wallTexture;
@@ -52,8 +52,7 @@ private List<Texture> pacmanTextures = new ArrayList<Texture>();
         instance = this;
         pacmanTexture = new Texture(Gdx.files.internal("pacman.png"));
         wallTexture = new Texture(Gdx.files.internal("wall.png"));
-       pillTexture = new Texture(Gdx.files.internal("pill.png"));
-
+        pillTexture = new Texture(Gdx.files.internal("pill.png"));
 
 
         processPendingUpdates();
@@ -68,7 +67,7 @@ private List<Texture> pacmanTextures = new ArrayList<Texture>();
 
         for (Pacman pacman : enemyPacmans) {
             batch.draw(pacmanTexture, pacman.getX() * CELL_SIZE, pacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-        pacman.animate();
+            pacman.animate();
         }
 
         for (Vector2 wall : gameMap.getWalls()) {
