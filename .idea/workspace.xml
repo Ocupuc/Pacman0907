@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e4dee3b-dd48-4f60-acb3-686dc2b3a4d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Client/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/ClientApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/java/ru/ocupuc/MyGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Server/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/MyGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/ru/ocupuc/ServerApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,17 +65,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/libGDX/Pacman0907/Client/src/main/java/ru/ocupuc"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/libGDX/Pacman0907/Client/src/main/java/ru/ocupuc&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\libGDX\Pacman0907\Client\src\main\java\ru\ocupuc" />
@@ -107,8 +98,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServerApp" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.ocupuc.ServerApp" />
+    <configuration name="StarterServer" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.ocupuc.StarterServer" />
       <module name="Server.main" />
       <extension name="coverage">
         <pattern>
@@ -141,7 +132,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Server [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Server [jar]" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/Server" />
@@ -183,10 +174,16 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.StarterServer" />
+      <item itemvalue="Application.ClientApp" />
+      <item itemvalue="Gradle.Server [jar]" />
+      <item itemvalue="Gradle.Server [build]" />
+      <item itemvalue="Gradle.Server [shadowJar]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Server [shadowJar]" />
-        <item itemvalue="Gradle.Server [jar]" />
         <item itemvalue="Gradle.Server [build]" />
       </list>
     </recent_temporary>
@@ -201,6 +198,14 @@
       <updated>1688879605876</updated>
       <workItem from="1688879607100" duration="948000" />
     </task>
+    <task id="LOCAL-00001" summary="Анимация">
+      <created>1690792449974</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1690792449974</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,5 +224,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Анимация" />
+    <option name="LAST_COMMIT_MESSAGE" value="Анимация" />
   </component>
 </project>
