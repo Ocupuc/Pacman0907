@@ -5,6 +5,13 @@ public class Pacman {
     private int x;
     private int y;
     private int score;
+    private int animationCount;
+    public  void animate(){
+        animationCount++;
+        if (animationCount>2){
+            animationCount = 0;
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -43,5 +50,17 @@ public class Pacman {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getAnimationCount() {
+        return animationCount;
     }
 }

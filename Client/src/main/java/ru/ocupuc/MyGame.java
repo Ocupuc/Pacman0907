@@ -7,6 +7,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static ru.ocupuc.GameData.*;
 
 public class MyGame extends ApplicationAdapter {
@@ -23,6 +26,7 @@ public class MyGame extends ApplicationAdapter {
     private static int gridHeight;  // высота сетки
     private static MyGame instance;
 
+private List<Texture> pacmanTextures = new ArrayList<Texture>();
 
     private Texture pacmanTexture;
     private Texture wallTexture;
@@ -49,6 +53,9 @@ public class MyGame extends ApplicationAdapter {
         pacmanTexture = new Texture(Gdx.files.internal("pacman.png"));
         wallTexture = new Texture(Gdx.files.internal("wall.png"));
        pillTexture = new Texture(Gdx.files.internal("pill.png"));
+
+
+
         processPendingUpdates();
     }
 
@@ -61,7 +68,9 @@ public class MyGame extends ApplicationAdapter {
 
         for (Pacman pacman : enemyPacmans) {
             batch.draw(pacmanTexture, pacman.getX() * CELL_SIZE, pacman.getY() * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        pacman.animate();
         }
+
         for (Vector2 wall : gameMap.getWalls()) {
             batch.draw(wallTexture, wall.x * CELL_SIZE, wall.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }

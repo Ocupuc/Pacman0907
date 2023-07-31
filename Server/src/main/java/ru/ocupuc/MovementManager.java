@@ -111,6 +111,8 @@ public class MovementManager {
             }
             if(pacmanField.isPill(newX, newY)) {
                 pacmanField.setEmpty(newX,newY);
+                pacman.setScore(pacman.getScore()+1);
+                System.out.println(pacman.getId() + " " + pacman.getScore());
             }
         }
     }
