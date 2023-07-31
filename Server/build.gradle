@@ -32,6 +32,17 @@ dependencies {
     api "org.lwjgl:lwjgl:${lwjglVersion}:natives-macos-arm64"
     api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
     api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+    implementation group: 'io.netty', name: 'netty-all', version: '4.1.94.Final'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.1'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.7'
+    implementation 'org.slf4j:slf4j-api:2.0.5'
+    implementation 'org.slf4j:slf4j-simple:2.0.5'
+
+
+
+
     api "org.lwjgl:lwjgl:${lwjglVersion}:natives-macos-arm64"
     api "org.lwjgl:lwjgl-assimp:${lwjglVersion}:natives-macos-arm64"
     api "org.lwjgl:lwjgl-bgfx:${lwjglVersion}:natives-macos-arm64"
